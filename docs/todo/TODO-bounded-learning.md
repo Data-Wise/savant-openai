@@ -6,7 +6,7 @@
 **Plan:**
 [PLAN-bounded-learning.md](../plans/PLAN-bounded-learning.md)
 
-**Status:** Phase 4 pilot and adversarial hardening complete; pre-commit review next
+**Status:** Phase 4 pilot and adversarial hardening complete; committed locally
 
 **Remediation plan:**
 [PLAN-adversarial-remediation-2026-08-05.md](../plans/PLAN-adversarial-remediation-2026-08-05.md)

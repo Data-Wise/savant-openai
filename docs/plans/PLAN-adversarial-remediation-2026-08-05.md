@@ -1,6 +1,6 @@
 # Savant OpenAI — Adversarial Remediation Plan
 
-> **Status:** Implemented; fresh review required before commit  
+> **Status:** Implemented and committed locally; push review required  
 > **Source:** Read-only adversarial review of the Phase 4 pilot  
 > **Branch:** `feature/bootstrap-savant-openai`  
 > **Related plan:** [PLAN-bounded-learning.md](PLAN-bounded-learning.md)  
@@ -140,7 +140,8 @@ This is intentionally **not part of the pre-commit hardening pass**.
 - No automatic candidate capture or promotion.
 - No edits to `SKILL.md`, `AGENTS.md`, contracts, or policies from model output.
 - No Claude Savant changes.
-- No commit, push, publication, or installation in this plan.
+- No push, publication, or installation in this plan. A local commit requires
+  the separate approval gate recorded in `.STATUS`.
 
 ## Acceptance criteria
 
@@ -176,5 +177,5 @@ separate commit approval gate:
 
 ## Next approval gate
 
-Perform a fresh review of the implementation and test evidence. Commit, push,
-publication, and installation remain separately approval-gated.
+Review local commit `223d73c` and its test evidence. Push, publication, and
+installation remain separately approval-gated.

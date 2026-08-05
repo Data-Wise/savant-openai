@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; pre-commit review pending
+**State:** Phase 4 pilot hardened; commit 223d73c created locally; push/review pending
 **Version:** 0.1.0
 **Branch:** feature/bootstrap-savant-openai
 **Last updated:** 2026-08-05
@@ -46,8 +46,8 @@
 
 ## Next approval gate
 
-Review the remediation diff and test evidence, then separately approve any
-commit, push, publication, or installation action.
+Review commit `223d73c` and test evidence, then separately approve any push,
+publication, or installation action.
 
 ## Planning artifacts
 

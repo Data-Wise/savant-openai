@@ -150,6 +150,6 @@ the Codex skill validator.
 
 ## Next action
 
-Next: review the completed adversarial remediation plan and test evidence.
-Commit, push, publish, and install remain separate approval-gated actions. Do
-not begin hook work without a new ADR or explicit scope approval.
+Next: review local commit `223d73c` and its test evidence. Push, publish, and
+install remain separate approval-gated actions. Do not begin hook work without
+a new ADR or explicit scope approval.
