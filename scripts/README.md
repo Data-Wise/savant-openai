@@ -2,6 +2,18 @@
 
 Scripts perform bounded, reproducible checks and emit deterministic results.
 
+## Codex skill validation
+
+Validate the plugin manifest, every skill frontmatter block, and each optional
+OpenAI interface file with:
+
+```bash
+python3 scripts/validate-skills.py
+```
+
+The validator uses only the Python standard library and is safe to run in CI.
+It does not modify skills, manifests, or configuration.
+
 ## Candidate validation
 
 Validate a candidate lesson with:

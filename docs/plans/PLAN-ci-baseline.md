@@ -1,8 +1,8 @@
 # CI baseline plan
 
-> **Status:** Planning only; no workflow changes are included here
+> **Status:** Phase 2 complete; Phase 3 pending approval
 >
-> **Branch:** `feature/ci-planning`
+> **Branch:** `feature/ci-baseline`
 >
 > **Base:** `dev`
 >
@@ -39,8 +39,8 @@ protected `dev` branch.
 | Phase | Increment | Priority | Effort | Status |
 | --- | --- | --- | --- | --- |
 | 0 | Planning and acceptance criteria | P0 | 10 min | Complete |
-| 1 | Add the minimal CI workflow | P0 | 20–30 min | Pending |
-| 2 | Run a feature-to-`dev` PR and inspect the check name | P0 | 10–15 min | Pending |
+| 1 | Add the minimal CI workflow | P0 | 20–30 min | Complete |
+| 2 | Run a feature-to-`dev` PR and inspect the check name | P0 | 10–15 min | Complete |
 | 3 | Require the stable check on `dev` | P0 | 5 min | Pending approval |
 
 **Total estimate:** 45–60 minutes, assuming the current offline suite remains
@@ -62,12 +62,12 @@ workflow and verified from a real pull request before protection is changed.
 
 ## Acceptance criteria
 
-- [ ] A pull request targeting `dev` runs the workflow automatically.
-- [ ] The full offline suite passes in CI.
-- [ ] Every current skill passes validation in CI.
+- [x] A pull request targeting `dev` runs the workflow automatically.
+- [x] The full offline suite passes in CI.
+- [x] Every current skill passes validation in CI.
 - [ ] Whitespace or contract failures produce a failing check.
-- [ ] The workflow requests read-only repository contents permission.
-- [ ] No secrets or external service credentials are needed.
+- [x] The workflow requests read-only repository contents permission.
+- [x] No secrets or external service credentials are needed.
 - [ ] The observed check name is required on `dev` only after one successful
       feature-to-`dev` dogfood run.
 
@@ -90,3 +90,18 @@ Before applying protection changes:
 4. Update [REPOSITORY-WORKFLOW.md](../architecture/REPOSITORY-WORKFLOW.md)
    with the required check name.
 5. Apply the required-check change as a separate approval-gated operation.
+
+## Dogfood evidence
+
+PR [#4](https://github.com/Data-Wise/savant-openai/pull/4) ran the workflow
+successfully on 2026-08-05.
+
+- Run: [CI run 31024116693](https://github.com/Data-Wise/savant-openai/actions/runs/31024116693)
+- Job: `test` (stable observed name)
+- Result: success in 9 seconds
+- Checks: 28 standard-library tests, 3 Codex skills, and pull-request
+  whitespace validation
+- Permissions: `contents: read`; no secrets or external services
+
+Phase 3 remains pending until `test` is explicitly configured as a required
+status check on protected `dev`.

@@ -2,18 +2,21 @@
 
 **Plan:** [PLAN-ci-baseline.md](../plans/PLAN-ci-baseline.md)
 
-**Status:** Planning complete; workflow implementation not started
+**Status:** Dogfood passed; required status check pending approval
 
 ## P0 — CI baseline
 
-- [ ] Add `.github/workflows/ci.yml` for pull requests into `dev` and pushes
+- [x] Add `.github/workflows/ci.yml` for pull requests into `dev` and pushes
       to `dev`.
-- [ ] Run the full standard-library test suite.
-- [ ] Validate every `skills/*/SKILL.md` with the Codex skill validator.
-- [ ] Run `git diff --check`.
-- [ ] Confirm read-only workflow permissions and no secret dependencies.
-- [ ] Dogfood on a feature-to-`dev` pull request.
-- [ ] Record the observed stable job name.
+- [x] Add a repository-local, standard-library skill validator.
+- [x] Use read-only workflow permissions and no secret dependencies.
+- [x] Run the full standard-library test suite in CI (28 tests passed).
+- [x] Validate every `skills/*/SKILL.md` with the Codex skill validator (3
+      skills passed).
+- [x] Run `git diff --check` for the pull request.
+- [x] Confirm read-only workflow permissions and no secret dependencies.
+- [x] Dogfood on a feature-to-`dev` pull request ([PR #4](https://github.com/Data-Wise/savant-openai/pull/4)).
+- [x] Record the observed stable job name: `test`.
 - [ ] Require the stable job on `dev` in a separate approval-gated change.
 
 ## Deferred
