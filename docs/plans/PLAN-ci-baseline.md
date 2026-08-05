@@ -1,6 +1,6 @@
 # CI baseline plan
 
-> **Status:** Planning only; no workflow changes are included here
+> **Status:** Phase 1 implemented; dogfood verification pending
 >
 > **Branch:** `feature/ci-planning`
 >
@@ -39,8 +39,8 @@ protected `dev` branch.
 | Phase | Increment | Priority | Effort | Status |
 | --- | --- | --- | --- | --- |
 | 0 | Planning and acceptance criteria | P0 | 10 min | Complete |
-| 1 | Add the minimal CI workflow | P0 | 20–30 min | Pending |
-| 2 | Run a feature-to-`dev` PR and inspect the check name | P0 | 10–15 min | Pending |
+| 1 | Add the minimal CI workflow | P0 | 20–30 min | Complete |
+| 2 | Run a feature-to-`dev` PR and inspect the check name | P0 | 10–15 min | In progress |
 | 3 | Require the stable check on `dev` | P0 | 5 min | Pending approval |
 
 **Total estimate:** 45–60 minutes, assuming the current offline suite remains
@@ -66,8 +66,8 @@ workflow and verified from a real pull request before protection is changed.
 - [ ] The full offline suite passes in CI.
 - [ ] Every current skill passes validation in CI.
 - [ ] Whitespace or contract failures produce a failing check.
-- [ ] The workflow requests read-only repository contents permission.
-- [ ] No secrets or external service credentials are needed.
+- [x] The workflow requests read-only repository contents permission.
+- [x] No secrets or external service credentials are needed.
 - [ ] The observed check name is required on `dev` only after one successful
       feature-to-`dev` dogfood run.
 

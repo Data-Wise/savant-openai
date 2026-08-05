@@ -2,12 +2,14 @@
 
 **Plan:** [PLAN-ci-baseline.md](../plans/PLAN-ci-baseline.md)
 
-**Status:** Planning complete; workflow implementation not started
+**Status:** Workflow implemented; dogfood verification pending
 
 ## P0 — CI baseline
 
-- [ ] Add `.github/workflows/ci.yml` for pull requests into `dev` and pushes
+- [x] Add `.github/workflows/ci.yml` for pull requests into `dev` and pushes
       to `dev`.
+- [x] Add a repository-local, standard-library skill validator.
+- [x] Use read-only workflow permissions and no secret dependencies.
 - [ ] Run the full standard-library test suite.
 - [ ] Validate every `skills/*/SKILL.md` with the Codex skill validator.
 - [ ] Run `git diff --check`.
