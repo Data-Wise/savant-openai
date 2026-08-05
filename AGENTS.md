@@ -25,6 +25,23 @@ verification. Keep it portable, small, and evidence-first.
 ## Workflow
 
 - Work on a non-main feature branch.
+- Planning-only work may be authored and committed on local `dev` when it
+  touches only the approved planning paths below. Code and implementation work
+  still belongs on `feature/*`.
 - Do not commit, push, publish, or install the plugin without explicit approval.
 - Validate the manifest, skill frontmatter, JSON contracts, and fixtures before handoff.
 - Update `.STATUS` when the scaffold or decision state changes.
+
+### Planning-only paths allowed on `dev`
+
+- `.STATUS`
+- `docs/plans/**`
+- `docs/todo/**`
+- `docs/specs/**`
+- `docs/adr/**`
+- `docs/architecture/**`
+
+Keep planning commits limited to these paths. Do not mix code, tests, skills,
+manifests, scripts, generated artifacts, or `.github/workflows/**` into a
+planning commit. GitHub protection still requires a pull request to publish a
+commit to remote `dev`; this exception does not authorize a direct push.

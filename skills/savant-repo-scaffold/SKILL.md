@@ -58,8 +58,14 @@ commands, hooks, `CLAUDE.md`, or Claude marketplace behavior.
 
    - For repositories under `dev-tools`, create or use `dev` as the integration
      branch and keep `main` for release/default-branch work.
-   - Use `feature/*` for implementation work. Do not silently make a feature
+   - Allow planning-only edits on local `dev` for `.STATUS`,
+     `docs/plans/**`, `docs/todo/**`, `docs/specs/**`, `docs/adr/**`, and
+     `docs/architecture/**`.
+   - Use `feature/*` for code, tests, skills, manifests, scripts, generated
+     artifacts, and `.github/workflows/**`. Do not silently make a feature
      branch the default branch.
+   - Keep the GitHub pull-request requirement on remote `dev`; local planning
+     permission does not authorize a direct push.
    - If a repository already has a documented topology, follow it and report
      the exception.
 
@@ -103,5 +109,6 @@ and one blocker or approval gate third.
 - [ ] Remote identity and visibility are verified.
 - [ ] `dev` exists for a `dev-tools` repository, or the documented exception is
       recorded.
+- [ ] Planning-only changes on `dev` stay within the allowlist.
 - [ ] Tests, skill validation, and repository checks pass.
 - [ ] No external mutation remains unapproved.
