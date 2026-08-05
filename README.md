@@ -33,9 +33,17 @@ reviewing candidate lessons. It validates evidence and scope, then requires a
 human-selected approve, reject, supersede, or revert action. Normal research
 verification loads no learning context.
 
+## Repository scaffolding
+
+`$savant-repo-scaffold` provides a Codex-native setup workflow for GitHub
+remotes, `dev-tools` branch topology, plugin detection, skill validation, and
+preflight checks. It does not import Claude commands, hooks, or marketplace
+metadata.
+
 ## Status
 
-The repository is scaffolded on `feature/bootstrap-savant-openai`.
+The repository is scaffolded on `dev` with implementation work on
+`feature/bootstrap-savant-openai`.
 Implementation, packaging, installation, commit, push, and publication remain
 approval-gated.
 

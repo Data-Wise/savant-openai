@@ -1,0 +1,4 @@
+interface:
+  display_name: "Savant Repo Scaffold"
+  short_description: "Scaffold Codex repositories safely"
+  default_prompt: "Use $savant-repo-scaffold to set up a Codex repository and GitHub remote safely."

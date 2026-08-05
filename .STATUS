@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; feature branch pushed; integration setup pending
+**State:** Phase 4 pilot hardened; Codex repo-scaffold skill added; `dev` setup pending publication
 **Version:** 0.1.0
 **Branch:** feature/bootstrap-savant-openai
 **Last updated:** 2026-08-05
@@ -24,6 +24,8 @@
 - Added explicit approve, reject, supersede, and revert transitions.
 - Added versioned approved/rejected/superseded lesson storage.
 - Added the explicitly invoked `savant-learning-review` skill.
+- Added the Codex-native `savant-repo-scaffold` skill for remote setup,
+  `dev-tools` branch topology, plugin detection, and preflight validation.
 - Added six promotion lifecycle tests and four measurement tests; the full
   suite now passes 28 tests.
 - Added timezone, evidence-reference, nested-contract, manifest, and
@@ -37,13 +39,15 @@
 - Confirmed normal verification loads no learning context.
 - Created public GitHub repository `Data-Wise/savant-openai`.
 - Added `origin` and pushed `feature/bootstrap-savant-openai` at `7e41deb`.
+- Prepared `dev` as the integration branch from the current feature tip;
+  publication remains a separate gate.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- Default integration branch and GitHub default-branch configuration.
+- GitHub default-branch configuration for `dev`.
 - Branch protection and required status checks.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
