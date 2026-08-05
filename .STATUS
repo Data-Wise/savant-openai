@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; CI workflow implemented; dogfood pending
+**State:** CI dogfood passed; required status check pending approval
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
 **Last updated:** 2026-08-05
@@ -47,23 +47,25 @@
   force-pushes or branch deletion.
 - Added the CI baseline plan and TODO.
 - Added the read-only GitHub Actions CI workflow and repository-local skill
-  validator; the workflow still needs a real pull-request run.
+  validator.
+- Completed CI dogfood on PR #4: the `test` job passed with 28 tests, 3 skill
+  validations, and pull-request whitespace checks.
+- Confirmed the stable observed job name is `test`.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- CI dogfood run and required status check.
+- Required `test` status check on protected `dev`.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-Run and inspect the [CI baseline plan](docs/plans/PLAN-ci-baseline.md) through a
-feature-to-`dev` pull request. Requiring its stable check on `dev` remains
-approval-gated; runtime Codex evaluation, publication, and installation remain
-deferred.
+Apply the required `test` status check to protected `dev` as a separate
+approval-gated change, then verify a post-merge `dev` run. Runtime Codex
+evaluation, publication, and installation remain deferred.
 
 ## Planning artifacts
 
