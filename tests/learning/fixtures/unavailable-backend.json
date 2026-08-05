@@ -1,0 +1,24 @@
+{
+  "name": "unavailable backend",
+  "expected_verdict": "UNVERIFIED",
+  "candidate": {
+    "schema_version": "1.0",
+    "id": "lesson-proof-003",
+    "task_class": "proof",
+    "observed_failure": "The requested symbolic backend was unavailable.",
+    "desired_behavior": "Report UNVERIFIED and name the missing backend.",
+    "scope": "savant-research-verify/proof",
+    "evidence": {
+      "type": "fixture",
+      "ref": "tests/fixtures/backend-unavailable.json"
+    },
+    "confidence": "high",
+    "provenance": {
+      "source_type": "verification",
+      "content_hash": "sha256:ghi789"
+    },
+    "redaction_status": "passed",
+    "lifecycle_status": "candidate",
+    "created_at": "2026-08-04T12:02:00Z"
+  }
+}

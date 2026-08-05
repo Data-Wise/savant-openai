@@ -1,0 +1,7 @@
+{
+  "id": "planted-proof-error",
+  "mode": "proof",
+  "claim": "For every real x, sqrt(x^2) = x.",
+  "expected_verdict": "FAILED",
+  "expected_check": "FAIL"
+}

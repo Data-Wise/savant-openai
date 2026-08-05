@@ -1,0 +1,7 @@
+{
+  "id": "backend-unavailable",
+  "mode": "proof",
+  "claim": "A symbolic equality requiring an unavailable backend.",
+  "expected_verdict": "UNVERIFIED",
+  "expected_check": "UNVERIFIED"
+}

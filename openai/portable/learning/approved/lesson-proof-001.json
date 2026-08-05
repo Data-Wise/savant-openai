@@ -1,0 +1,21 @@
+{
+  "confidence": "high",
+  "created_at": "2026-08-04T12:00:00Z",
+  "desired_behavior": "State the denominator assumption before cancelling.",
+  "evidence": {
+    "ref": "tests/fixtures/planted-proof-error.json",
+    "type": "fixture"
+  },
+  "id": "lesson-proof-001",
+  "lifecycle_status": "approved",
+  "observed_failure": "A cancellation step omitted a nonzero denominator assumption.",
+  "provenance": {
+    "content_hash": "sha256:abc123",
+    "source_type": "verification"
+  },
+  "redaction_status": "passed",
+  "reviewed_at": "2026-08-04T14:00:00Z",
+  "schema_version": "1.0",
+  "scope": "savant-research-verify/proof",
+  "task_class": "proof"
+}

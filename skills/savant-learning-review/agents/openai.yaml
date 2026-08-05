@@ -1,0 +1,4 @@
+interface:
+  display_name: "Savant Learning Review"
+  short_description: "Review and promote bounded research lessons"
+  default_prompt: "Use $savant-learning-review to review a bounded-learning candidate before explicit approval, rejection, supersession, or revert."

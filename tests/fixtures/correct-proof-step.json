@@ -1,0 +1,7 @@
+{
+  "id": "correct-proof-step",
+  "mode": "proof",
+  "claim": "For x > 0, log(exp(x)) = x.",
+  "expected_verdict": "VERIFIED",
+  "expected_check": "PASS"
+}

@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "estimated_tokens": 15,
+    "verdict": "FAILED"
+  },
+  "fixture": "planted-proof-error",
+  "lesson": "lesson-proof-001",
+  "measurement_schema_version": "1.0",
+  "normal_verification": {
+    "estimated_tokens": 15,
+    "learning_context_loaded": false
+  },
+  "review_only": {
+    "added_tokens": 63,
+    "learning_context_loaded": true
+  },
+  "scope": "savant-research-verify/proof",
+  "token_estimator": "ceil(UTF-8 bytes / 4); heuristic, not model-token accounting",
+  "verdict_preserved": true,
+  "with_lesson": {
+    "estimated_tokens": 78,
+    "verdict": "FAILED"
+  }
+}

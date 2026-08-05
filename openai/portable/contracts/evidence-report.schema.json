@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-wise.github.io/savant-openai/evidence-report.schema.json",
+  "title": "Savant Research Verification Report",
+  "type": "object",
+  "required": ["verdict", "claim", "scope", "checks", "limitations"],
+  "properties": {
+    "verdict": {
+      "enum": ["VERIFIED", "PARTIALLY_VERIFIED", "FAILED", "UNVERIFIED"]
+    },
+    "claim": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "evidence"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {"enum": ["PASS", "FAIL", "UNVERIFIED"]},
+          "evidence": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "human_review": {"type": "string"},
+    "next_action": {"type": "string"}
+  },
+  "additionalProperties": false
+}

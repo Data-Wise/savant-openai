@@ -1,0 +1,24 @@
+{
+  "name": "negative overgeneralization",
+  "expected_verdict": "UNVERIFIED",
+  "candidate": {
+    "schema_version": "1.0",
+    "id": "lesson-proof-002",
+    "task_class": "proof",
+    "observed_failure": "A numerical spot check was mistaken for a proof.",
+    "desired_behavior": "Treat every numerical check as proof of the general theorem.",
+    "scope": "savant-research-verify/proof",
+    "evidence": {
+      "type": "fixture",
+      "ref": "tests/fixtures/planted-proof-error.json"
+    },
+    "confidence": "low",
+    "provenance": {
+      "source_type": "verification",
+      "content_hash": "sha256:def456"
+    },
+    "redaction_status": "passed",
+    "lifecycle_status": "candidate",
+    "created_at": "2026-08-04T12:01:00Z"
+  }
+}

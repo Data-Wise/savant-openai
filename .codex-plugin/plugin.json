@@ -1,0 +1,19 @@
+{
+  "name": "savant-openai",
+  "version": "0.1.0",
+  "description": "Portable mathematical and statistical research verification workflows for ChatGPT and Codex.",
+  "author": {
+    "name": "Data-Wise",
+    "email": "dt@stat-wise.com"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Savant OpenAI Research",
+    "shortDescription": "Verify mathematical and statistical research claims.",
+    "longDescription": "Savant OpenAI provides focused, evidence-first workflows for mathematical proofs, statistical analyses, simulations, and reproducibility checks.",
+    "developerName": "Data-Wise",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use $savant-research-verify to audit this mathematical or statistical claim."
+  }
+}

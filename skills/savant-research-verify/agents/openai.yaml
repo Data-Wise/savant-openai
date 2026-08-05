@@ -1,0 +1,5 @@
+interface:
+  display_name: "Savant Research Verify"
+  short_description: "Audit research claims with explicit evidence."
+  default_prompt: "Use $savant-research-verify to audit this mathematical or statistical claim."
+  brand_color: "#2563EB"

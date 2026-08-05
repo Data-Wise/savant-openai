@@ -1,0 +1,58 @@
+# savant-openai status
+
+**State:** Phase 4 pilot hardened; pre-commit review pending
+**Version:** 0.1.0
+**Branch:** feature/bootstrap-savant-openai
+**Last updated:** 2026-08-05
+
+## Completed
+
+- Created the new repository.
+- Created the Codex plugin manifest.
+- Created the first skill skeleton.
+- Recorded the portable-core and adapter boundary.
+- Added verification status and evidence-report contracts.
+- Added positive, negative, and unavailable-backend fixtures.
+- Documented bounded learning and the human-promotion boundary.
+- Added ADR-0002 for the learning architecture.
+- Added the bounded-learning specification, TODO, and implementation plan.
+- Added the candidate-lesson JSON schema.
+- Added the standard-library candidate validator.
+- Added six candidate contract tests.
+- Added six standalone security and regression fixtures.
+- Added prompt-injection detection to candidate validation.
+- Added explicit approve, reject, supersede, and revert transitions.
+- Added versioned approved/rejected/superseded lesson storage.
+- Added the explicitly invoked `savant-learning-review` skill.
+- Added six promotion lifecycle tests and four measurement tests; the full
+  suite now passes 28 tests.
+- Added timezone, evidence-reference, nested-contract, manifest, and
+  frontmatter regression coverage.
+- Added rollback-safe supersession for partial promotion failures.
+- Reconciled architecture, specification, plan, TODO, policy, and status
+  language with the implemented pilot boundary.
+- Promoted `lesson-proof-001` from the planted proof-error fixture.
+- Recorded a baseline versus review-only measurement: 15 vs 78 estimated
+  tokens; both paths preserved `FAILED`.
+- Confirmed normal verification loads no learning context.
+
+## Not started
+
+- Deterministic CAS/statistics scripts.
+- Codex package materialization and drift checks.
+- Runtime evaluation in Codex.
+- Commit, push, publication, or marketplace installation.
+- Broader multi-lesson evaluation and runtime Codex integration.
+
+## Next approval gate
+
+Review the remediation diff and test evidence, then separately approve any
+commit, push, publication, or installation action.
+
+## Planning artifacts
+
+- [Specification](docs/specs/SPEC-bounded-learning-2026-08-04.md)
+- [TODO](docs/todo/TODO-bounded-learning.md)
+- [Implementation plan](docs/plans/PLAN-bounded-learning.md)
+- [Adversarial remediation plan](docs/plans/PLAN-adversarial-remediation-2026-08-05.md)
+- [Dogfood measurement](docs/measurements/MEASUREMENT-bounded-learning-2026-08-04.md)
