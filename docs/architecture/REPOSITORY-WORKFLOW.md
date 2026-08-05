@@ -12,7 +12,8 @@
   pull requests.
 - `main` is reserved for a future release path; it is not created or protected
   by this setup.
-- The repository is public, and no status check is required until CI exists.
+- The repository is public, and the verified `test` check is required on
+  protected `dev`.
 
 ## Protection boundary
 
@@ -33,16 +34,16 @@ The `dev` branch uses the following baseline:
 | --- | --- | --- |
 | Pull request required | Yes | Keeps integration changes reviewable and traceable. |
 | Required approvals | 0 | Single-maintainer workflow; CI and evidence remain the gate. |
-| Required status checks | None yet | No CI workflow exists to name as a stable check. |
+| Required status checks | `test` (strict) | Blocks integration unless the deterministic CI baseline passes. |
 | Force pushes | Disabled | Preserves branch history and review references. |
 | Branch deletion | Disabled | Keeps the integration target stable. |
 | Admin enforcement | Enabled | Avoids silently bypassing the baseline. |
 | Conversation resolution | Enabled | Requires PR discussions to be resolved. |
 
-The implementation sequence is recorded in the
-[CI baseline plan](../plans/PLAN-ci-baseline.md). Required checks must be named
-explicitly and tested on a feature-to-`dev` pull request before becoming
-mandatory.
+The implementation sequence and dogfood evidence are recorded in the
+[CI baseline plan](../plans/PLAN-ci-baseline.md). The `test` check was named
+explicitly, tested on PR #4, and then made mandatory after the successful
+post-merge `dev` run.
 
 ## Planning on `dev`
 

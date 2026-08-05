@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** CI dogfood passed; required status check pending approval
+**State:** CI baseline complete
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
 **Last updated:** 2026-08-05
@@ -51,21 +51,21 @@
 - Completed CI dogfood on PR #4: the `test` job passed with 28 tests, 3 skill
   validations, and pull-request whitespace checks.
 - Confirmed the stable observed job name is `test`.
+- Required `test` with strict updates on protected `dev`.
+- Merged PR #4 as `1508d4c` and verified the post-merge `dev` CI run passed.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- Required `test` status check on protected `dev`.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-Apply the required `test` status check to protected `dev` as a separate
-approval-gated change, then verify a post-merge `dev` run. Runtime Codex
-evaluation, publication, and installation remain deferred.
+The CI baseline is complete. The next approval gate is runtime Codex
+evaluation or a separate release/publication plan; those remain deferred.
 
 ## Planning artifacts
 
