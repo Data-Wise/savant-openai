@@ -44,10 +44,28 @@ The implementation sequence is recorded in the
 explicitly and tested on a feature-to-`dev` pull request before becoming
 mandatory.
 
+## Planning on `dev`
+
+Planning-only work may be authored and committed on local `dev` when every
+changed path is in this allowlist:
+
+- `.STATUS`
+- `docs/plans/**`
+- `docs/todo/**`
+- `docs/specs/**`
+- `docs/adr/**`
+- `docs/architecture/**`
+
+Planning commits must not include code, tests, skills, manifests, scripts,
+generated artifacts, or `.github/workflows/**`. Those changes require a
+`feature/*` branch. This is a local workflow exception; the GitHub pull-request
+requirement on remote `dev` remains in force.
+
 ## Codex session checklist
 
 1. Read the current branch, worktree, status, and remote.
-2. Use `feature/*` for code or skill implementation.
+2. Stay on `dev` for allowlisted planning-only work; use `feature/*` for code or
+   skill implementation.
 3. Run the skill validator and full offline test suite.
 4. Open a pull request targeting `dev`.
 5. Treat default-branch, protection, release, and publication changes as
