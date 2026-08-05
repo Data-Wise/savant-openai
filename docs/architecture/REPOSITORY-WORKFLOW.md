@@ -1,9 +1,9 @@
 # Repository workflow and protection
 
-**Repository:** `Data-Wise/savant-openai`  
-**Default integration branch:** `dev`  
-**Implementation branches:** `feature/*`  
-**Release branch:** `main` when a release workflow is introduced
+- Repository: `Data-Wise/savant-openai`
+- Default integration branch: `dev`
+- Implementation branches: `feature/*`
+- Release branch: `main` when a release workflow is introduced
 
 ## Current state
 
