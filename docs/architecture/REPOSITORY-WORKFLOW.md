@@ -39,8 +39,10 @@ The `dev` branch uses the following baseline:
 | Admin enforcement | Enabled | Avoids silently bypassing the baseline. |
 | Conversation resolution | Enabled | Requires PR discussions to be resolved. |
 
-When CI is added, required checks must be named explicitly and tested on a
-feature-to-`dev` pull request before becoming mandatory.
+The implementation sequence is recorded in the
+[CI baseline plan](../plans/PLAN-ci-baseline.md). Required checks must be named
+explicitly and tested on a feature-to-`dev` pull request before becoming
+mandatory.
 
 ## Codex session checklist
 

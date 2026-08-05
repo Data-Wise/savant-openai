@@ -119,3 +119,7 @@ and the additional Codex-session rules are documented in
 [Repository workflow and protection](REPOSITORY-WORKFLOW.md). GitHub-side
 protection is necessarily client-independent; Codex-only enforcement belongs in
 the Codex skill and preflight workflow.
+
+The next repository-integration increment is the
+[CI baseline plan](../plans/PLAN-ci-baseline.md), which keeps checks local,
+read-only, and separate from runtime Codex evaluation.
