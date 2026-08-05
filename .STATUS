@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; commit 223d73c created locally; push/review pending
+**State:** Phase 4 pilot hardened; feature branch pushed; integration setup pending
 **Version:** 0.1.0
 **Branch:** feature/bootstrap-savant-openai
 **Last updated:** 2026-08-05
@@ -35,19 +35,24 @@
 - Recorded a baseline versus review-only measurement: 15 vs 78 estimated
   tokens; both paths preserved `FAILED`.
 - Confirmed normal verification loads no learning context.
+- Created public GitHub repository `Data-Wise/savant-openai`.
+- Added `origin` and pushed `feature/bootstrap-savant-openai` at `7e41deb`.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- Commit, push, publication, or marketplace installation.
+- Default integration branch and GitHub default-branch configuration.
+- Branch protection and required status checks.
+- Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-Review commit `223d73c` and test evidence, then separately approve any push,
-publication, or installation action.
+Review the remote feature branch and test evidence. Configure the default
+integration branch and branch protection separately; publication and
+installation remain approval-gated.
 
 ## Planning artifacts
 
