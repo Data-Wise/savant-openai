@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; `dev` is the GitHub default and protected; CI checks deferred
+**State:** Phase 4 pilot hardened; `dev` is protected; CI baseline planning complete
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
 **Last updated:** 2026-08-05
@@ -45,6 +45,7 @@
 - Applied the documented protection baseline to `dev`: pull requests required,
   zero required approvals, admin enforcement, resolved conversations, and no
   force-pushes or branch deletion.
+- Added the CI baseline plan and TODO; workflow implementation remains pending.
 
 ## Not started
 
@@ -57,8 +58,9 @@
 
 ## Next approval gate
 
-Add a small CI workflow and require its stable checks on `dev`. Runtime Codex
-evaluation, publication, and installation remain approval-gated.
+Implement the [CI baseline plan](docs/plans/PLAN-ci-baseline.md) on a feature
+branch. Requiring its stable check on `dev` remains approval-gated; runtime
+Codex evaluation, publication, and installation remain deferred.
 
 ## Planning artifacts
 
@@ -68,3 +70,5 @@ evaluation, publication, and installation remain approval-gated.
 - [Adversarial remediation plan](docs/plans/PLAN-adversarial-remediation-2026-08-05.md)
 - [Dogfood measurement](docs/measurements/MEASUREMENT-bounded-learning-2026-08-04.md)
 - [Repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)
+- [CI baseline plan](docs/plans/PLAN-ci-baseline.md)
+- [CI baseline TODO](docs/todo/TODO-ci-baseline.md)
