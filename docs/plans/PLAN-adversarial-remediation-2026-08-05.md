@@ -1,6 +1,6 @@
 # Savant OpenAI — Adversarial Remediation Plan
 
-> **Status:** Implemented and committed locally; push review required  
+> **Status:** Implemented and committed locally; push review required
 > **Source:** Read-only adversarial review of the Phase 4 pilot  
 > **Branch:** `feature/bootstrap-savant-openai`  
 > **Related plan:** [PLAN-bounded-learning.md](PLAN-bounded-learning.md)  
