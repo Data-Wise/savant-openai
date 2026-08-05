@@ -2,7 +2,7 @@
 
 **Plan:** [PLAN-ci-baseline.md](../plans/PLAN-ci-baseline.md)
 
-**Status:** Dogfood passed; required status check pending approval
+**Status:** Complete
 
 ## P0 — CI baseline
 
@@ -17,7 +17,7 @@
 - [x] Confirm read-only workflow permissions and no secret dependencies.
 - [x] Dogfood on a feature-to-`dev` pull request ([PR #4](https://github.com/Data-Wise/savant-openai/pull/4)).
 - [x] Record the observed stable job name: `test`.
-- [ ] Require the stable job on `dev` in a separate approval-gated change.
+- [x] Require the stable job on `dev` in a separate approval-gated change.
 
 ## Deferred
 
@@ -28,6 +28,6 @@
 
 ## Definition of done
 
-The CI baseline is complete when a feature-to-`dev` pull request runs the
-offline tests and all skill validators, fails on contract or formatting errors,
-uses read-only permissions, and has its verified job name required by `dev`.
+The CI baseline is complete: a feature-to-`dev` pull request runs the offline
+tests and all skill validators, fails on contract or formatting errors, uses
+read-only permissions, and has its verified `test` job required by `dev`.

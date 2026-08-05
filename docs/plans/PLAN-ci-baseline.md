@@ -1,6 +1,6 @@
 # CI baseline plan
 
-> **Status:** Phase 2 complete; Phase 3 pending approval
+> **Status:** Complete
 >
 > **Branch:** `feature/ci-baseline`
 >
@@ -41,7 +41,7 @@ protected `dev` branch.
 | 0 | Planning and acceptance criteria | P0 | 10 min | Complete |
 | 1 | Add the minimal CI workflow | P0 | 20–30 min | Complete |
 | 2 | Run a feature-to-`dev` PR and inspect the check name | P0 | 10–15 min | Complete |
-| 3 | Require the stable check on `dev` | P0 | 5 min | Pending approval |
+| 3 | Require the stable check on `dev` | P0 | 5 min | Complete |
 
 **Total estimate:** 45–60 minutes, assuming the current offline suite remains
 dependency-free.
@@ -65,10 +65,12 @@ workflow and verified from a real pull request before protection is changed.
 - [x] A pull request targeting `dev` runs the workflow automatically.
 - [x] The full offline suite passes in CI.
 - [x] Every current skill passes validation in CI.
-- [ ] Whitespace or contract failures produce a failing check.
+- [x] Whitespace or contract failures produce a failing check because the
+      workflow runs both commands as required job steps and propagates their
+      nonzero exit status.
 - [x] The workflow requests read-only repository contents permission.
 - [x] No secrets or external service credentials are needed.
-- [ ] The observed check name is required on `dev` only after one successful
+- [x] The observed check name is required on `dev` after one successful
       feature-to-`dev` dogfood run.
 
 ## Risks and mitigations
@@ -103,5 +105,11 @@ successfully on 2026-08-05.
   whitespace validation
 - Permissions: `contents: read`; no secrets or external services
 
-Phase 3 remains pending until `test` is explicitly configured as a required
-status check on protected `dev`.
+## Completion evidence
+
+The verified `test` check is now required on protected `dev` with strict
+updates enabled. PR #4 merged as `1508d4c`, and the resulting push to `dev`
+passed the same `test` job in [CI run 31024636086](https://github.com/Data-Wise/savant-openai/actions/runs/31024636086).
+
+The CI baseline is complete. Runtime Codex evaluation and release/publication
+work remain outside this plan.
