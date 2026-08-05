@@ -1,8 +1,8 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; `dev` is the GitHub default; protection setup in progress
+**State:** Phase 4 pilot hardened; `dev` is the GitHub default and protected; CI checks deferred
 **Version:** 0.1.0
-**Branch:** feature/bootstrap-savant-openai
+**Branch:** `dev` (default integration)
 **Last updated:** 2026-08-05
 
 ## Completed
@@ -38,25 +38,27 @@
   tokens; both paths preserved `FAILED`.
 - Confirmed normal verification loads no learning context.
 - Created public GitHub repository `Data-Wise/savant-openai`.
-- Added `origin` and pushed `feature/bootstrap-savant-openai` at `7e41deb`.
+- Added `origin` and pushed `feature/bootstrap-savant-openai` at `f5d3997`.
 - Prepared `dev` as the integration branch from the current feature tip;
   publication remains a separate gate.
 - Configured GitHub default branch to `dev`.
+- Applied the documented protection baseline to `dev`: pull requests required,
+  zero required approvals, admin enforcement, resolved conversations, and no
+  force-pushes or branch deletion.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- Branch protection and required status checks.
+- CI workflow and required status checks.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-Apply and verify the documented `dev` protection baseline. Required CI checks
-remain deferred until a CI workflow exists; publication and installation remain
-approval-gated.
+Add a small CI workflow and require its stable checks on `dev`. Runtime Codex
+evaluation, publication, and installation remain approval-gated.
 
 ## Planning artifacts
 
