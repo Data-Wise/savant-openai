@@ -1,6 +1,6 @@
 # savant-openai status
 
-**State:** Phase 4 pilot hardened; Codex repo-scaffold skill added; `dev` setup pending publication
+**State:** Phase 4 pilot hardened; `dev` is the GitHub default; protection setup in progress
 **Version:** 0.1.0
 **Branch:** feature/bootstrap-savant-openai
 **Last updated:** 2026-08-05
@@ -41,22 +41,22 @@
 - Added `origin` and pushed `feature/bootstrap-savant-openai` at `7e41deb`.
 - Prepared `dev` as the integration branch from the current feature tip;
   publication remains a separate gate.
+- Configured GitHub default branch to `dev`.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
 - Runtime evaluation in Codex.
-- GitHub default-branch configuration for `dev`.
 - Branch protection and required status checks.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-Review the remote feature branch and test evidence. Configure the default
-integration branch and branch protection separately; publication and
-installation remain approval-gated.
+Apply and verify the documented `dev` protection baseline. Required CI checks
+remain deferred until a CI workflow exists; publication and installation remain
+approval-gated.
 
 ## Planning artifacts
 
@@ -65,3 +65,4 @@ installation remain approval-gated.
 - [Implementation plan](docs/plans/PLAN-bounded-learning.md)
 - [Adversarial remediation plan](docs/plans/PLAN-adversarial-remediation-2026-08-05.md)
 - [Dogfood measurement](docs/measurements/MEASUREMENT-bounded-learning-2026-08-04.md)
+- [Repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)

@@ -42,9 +42,12 @@ metadata.
 
 ## Status
 
-The repository is scaffolded on `dev` with implementation work on
-`feature/bootstrap-savant-openai`.
+The repository uses `dev` as its GitHub default integration branch, with
+implementation work on `feature/bootstrap-savant-openai`.
 Implementation, packaging, installation, commit, push, and publication remain
 approval-gated.
+
+Read the [repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)
+for the Codex-session boundary and branch settings.
 
 Read [the architecture plan](docs/architecture/SAVANT-OPENAI-PLAN.md) first.

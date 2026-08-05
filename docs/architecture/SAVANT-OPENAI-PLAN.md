@@ -110,3 +110,12 @@ The implementation work is specified and staged in:
 - [Bounded-learning TODO](../todo/TODO-bounded-learning.md)
 - [Bounded-learning implementation plan](../plans/PLAN-bounded-learning.md)
 - [Adversarial remediation plan](../plans/PLAN-adversarial-remediation-2026-08-05.md)
+
+## Repository workflow
+
+The repository uses `dev` as its GitHub default integration branch and
+`feature/*` branches for implementation. The shared GitHub protection boundary
+and the additional Codex-session rules are documented in
+[Repository workflow and protection](REPOSITORY-WORKFLOW.md). GitHub-side
+protection is necessarily client-independent; Codex-only enforcement belongs in
+the Codex skill and preflight workflow.
