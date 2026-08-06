@@ -1,6 +1,6 @@
 # Savant OpenAI pilot plan
 
-**Status:** Pilot implemented; pre-commit hardening complete; runtime evaluation deferred
+**Status:** Pilot implemented; pre-commit hardening complete; runtime Codex evaluation complete
 **Scope:** First OpenAI-facing research-verification adapter
 **Date:** 2026-08-04
 
@@ -82,6 +82,8 @@ validates a step, not an entire theorem.
 3. Add one deterministic proof/CAS adapter.
 4. Add statistical and simulation adapters only after the first contract passes.
 5. Run Codex evaluation fixtures, including unavailable-backend cases.
+   (Completed 2026-08-06: all three fixture classes, baseline and
+   lesson-assisted, produced the expected verdict.)
 6. Add packaging and drift checks after runtime evidence justifies them.
 7. Implement the bounded-learning schema and validator described in
    [BOUNDED-LEARNING.md](BOUNDED-LEARNING.md).
@@ -120,6 +122,8 @@ and the additional Codex-session rules are documented in
 protection is necessarily client-independent; Codex-only enforcement belongs in
 the Codex skill and preflight workflow.
 
-The next repository-integration increment is the
+The next repository-integration increment was the
 [CI baseline plan](../plans/PLAN-ci-baseline.md), which keeps checks local,
-read-only, and separate from runtime Codex evaluation.
+read-only, and separate from runtime Codex evaluation. Runtime Codex
+evaluation completed on 2026-08-06; packaging and drift checks remain gated on
+a separate plan.

@@ -91,5 +91,6 @@ spec pass, one lesson has been dogfooded, and the normal verification path has
 no learning-context overhead. This gate is complete for the current pilot;
 broader lessons require additional measurements.
 
-**Current pilot effort:** Complete for the bounded-learning MVP and remediation
-pass. Runtime Codex evaluation remains a separate future effort.
+**Current pilot effort:** Complete for the bounded-learning MVP, remediation
+pass, and the 2026-08-06 runtime Codex evaluation (6/6 verdicts preserved).
+Package materialization and drift checks remain separate future work.

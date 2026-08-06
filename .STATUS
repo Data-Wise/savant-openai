@@ -1,9 +1,9 @@
 # savant-openai status
 
-**State:** CI baseline complete
+**State:** CI baseline complete; runtime Codex evaluation complete
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-06
 
 ## Completed
 
@@ -53,19 +53,25 @@
 - Confirmed the stable observed job name is `test`.
 - Required `test` with strict updates on protected `dev`.
 - Merged PR #4 as `1508d4c` and verified the post-merge `dev` CI run passed.
+- Completed runtime Codex evaluation on 2026-08-06: the `savant-research-verify`
+  skill ran in actual `codex exec` sessions on the three fixture classes
+  (positive, negative, unavailable-backend), baseline and lesson-assisted.
+  All 6 runs produced the expected verdict, the approved lesson preserved every
+  baseline verdict (no false `VERIFIED`), and the model correctly ignored the
+  out-of-scope lesson. Recorded actual model token usage per run.
 
 ## Not started
 
 - Deterministic CAS/statistics scripts.
 - Codex package materialization and drift checks.
-- Runtime evaluation in Codex.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
 
 ## Next approval gate
 
-The CI baseline is complete. The next approval gate is runtime Codex
-evaluation or a separate release/publication plan; those remain deferred.
+The CI baseline and runtime Codex evaluation are complete. The next approval
+gate is a separate release/publication plan, or codex-package materialization
+and drift checks; those remain deferred.
 
 ## Planning artifacts
 
@@ -74,6 +80,7 @@ evaluation or a separate release/publication plan; those remain deferred.
 - [Implementation plan](docs/plans/PLAN-bounded-learning.md)
 - [Adversarial remediation plan](docs/plans/PLAN-adversarial-remediation-2026-08-05.md)
 - [Dogfood measurement](docs/measurements/MEASUREMENT-bounded-learning-2026-08-04.md)
+- [Runtime Codex measurement](docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.md)
 - [Repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)
 - [CI baseline plan](docs/plans/PLAN-ci-baseline.md)
 - [CI baseline TODO](docs/todo/TODO-ci-baseline.md)

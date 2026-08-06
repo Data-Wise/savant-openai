@@ -1,6 +1,6 @@
 # Bounded learning for Savant OpenAI
 
-**Status:** Pilot implemented; pre-commit hardening complete; runtime evaluation deferred
+**Status:** Pilot implemented; pre-commit hardening complete; runtime Codex evaluation complete
 **Date:** 2026-08-04
 **Owner:** `savant-openai`
 **Related ADR:** [ADR-0002](../adr/ADR-0002-bounded-learning-boundary.md)

@@ -13,8 +13,8 @@ lifecycle, and contract-validation gaps found during review, reconcile the
 planning documentation, and preserve the core boundary: learning remains
 opt-in, human-reviewed, versioned, and absent from normal verification.
 
-This plan does **not** add hooks, automatic promotion, runtime self-editing, or
-full Codex evaluation. Those remain separate future work.
+This plan does **not** add hooks, automatic promotion, or runtime self-editing.
+Full Codex evaluation was completed separately on 2026-08-06.
 
 ## Priority summary
 
@@ -25,7 +25,7 @@ full Codex evaluation. Those remain separate future work.
 | P0 | Transaction-safe promotion | Prevent contradictory approved/superseded state | Medium | Complete |
 | P1 | Contract and failure-path tests | Make the fixes regression-proof | Medium | Complete |
 | P1 | Documentation reconciliation | Remove false completion and layout claims | Small | Complete |
-| P2 | Runtime Codex evaluation | Measure actual model behavior and token cost | Large | Deferred |
+| P2 | Runtime Codex evaluation | Measure actual model behavior and token cost | Large | Complete |
 
 ## Phase 1 — Validator integrity
 
@@ -121,18 +121,21 @@ from unstarted runtime evaluation.
 **Exit gate:** No planning artifact claims runtime evaluation or fully verified
 evidence that has not occurred.
 
-## Deferred Phase 5 — Runtime Codex evaluation
+## Phase 5 — Runtime Codex evaluation
 
-This is intentionally **not part of the pre-commit hardening pass**.
+This was intentionally **not part of the pre-commit hardening pass**; it was
+completed on 2026-08-06.
 
-- Run the skill in an actual Codex session.
-- Compare baseline and lesson-assisted behavior on positive, negative, and
-  unavailable-backend cases.
-- Measure actual context/token overhead rather than byte heuristics alone.
-- Verify that lessons preserve `UNVERIFIED` and do not create false
-  `VERIFIED` results.
-- Add package materialization and drift checks only after runtime evidence
-  justifies them.
+- [x] Run the skill in an actual Codex session.
+- [x] Compare baseline and lesson-assisted behavior on positive, negative, and
+  unavailable-backend cases. All six runs produced the expected verdict.
+- [x] Measure actual context/token overhead rather than byte heuristics alone.
+  Actual per-run token usage is recorded in
+  [MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md).
+- [x] Verify that lessons preserve `UNVERIFIED` and do not create false
+  `VERIFIED` results. Verdicts were preserved in every run.
+- [ ] Add package materialization and drift checks only after runtime evidence
+  justifies them. This remains deferred pending a separate plan.
 
 ## Non-goals
 

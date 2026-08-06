@@ -1,6 +1,6 @@
 # Bounded learning design
 
-**Status:** Accepted design; pilot and pre-commit hardening implemented; runtime evaluation deferred
+**Status:** Accepted design; pilot and pre-commit hardening implemented; runtime Codex evaluation complete
 **Date:** 2026-08-04
 **Scope:** `savant-openai` research-verification workflows
 
@@ -152,6 +152,13 @@ automatic capture is enabled.
 The current measurement is fixture-backed contract-level dogfood evidence. Its
 byte-based token estimate is not model-token accounting, and it does not
 establish runtime Codex accuracy.
+
+The 2026-08-06 runtime evaluation ran the skill in actual `codex exec`
+sessions on the three fixture classes, baseline and lesson-assisted: all six
+verdicts matched the expected terminal status, the lesson preserved every
+baseline verdict (no false `VERIFIED`), and actual model token usage was
+recorded per run (see
+[MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md)).
 
 ## References
 
