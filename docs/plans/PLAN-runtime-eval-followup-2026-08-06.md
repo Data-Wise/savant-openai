@@ -1,6 +1,6 @@
 # Savant OpenAI — Runtime Evaluation Follow-up Plan
 
-> **Status:** Proposed; awaiting approval
+> **Status:** Active — Phases 1–2 complete; Phases 3–5 proposed
 > **Source:** Review of the 2026-08-06 runtime Codex evaluation
 >   ([MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md))
 > **Branch:** `dev` (merged via PR #6 on 2026-08-06)
@@ -17,8 +17,8 @@ approval-gated.
 
 | Priority | Work | Why it matters | Effort | Status |
 | --- | --- | --- | --- | --- |
-| P0 | Evidence-path tracking in runtime measurements | Flag `VERIFIED` verdicts reached without a deterministic check | Small | Proposed |
-| P0 | Committed deterministic CAS check | Give proof mode a repo-owned backend instead of relying on session tooling | Medium | Proposed |
+| P0 | Evidence-path tracking in runtime measurements | Flag `VERIFIED` verdicts reached without a deterministic check | Small | Complete |
+| P0 | Committed deterministic CAS check | Give proof mode a repo-owned backend instead of relying on session tooling | Medium | Complete |
 | P1 | Raw transcript archival policy | Runtime evals are only re-runnable, not script-reproducible | Small | Proposed |
 | P1 | In-scope lesson fixtures | Exercise a lesson that actually applies, not only out-of-scope cases | Medium | Proposed |
 | P2 | Broader multi-lesson evaluation | Statistical confidence across lessons, fixtures, and repeated runs | Large | Proposed |
@@ -37,11 +37,19 @@ approval-gated.
 
 **Key files:**
 
-- `docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.json` (schema)
+- `openai/portable/contracts/runtime-measurement.schema.json` (schema 1.2)
+- `docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.json` (measured artifact)
 - `scripts/learning/measure-lesson.py` (schema-aware output)
 
 **Exit gate:** A measurement run where the evidence path is recorded per
 fixture and any sub-CAS `VERIFIED` is flagged.
+
+**Status:** Complete. Schema 1.2 (`openai/portable/contracts/runtime-measurement.schema.json`)
+adds a per-run `evidence_path` enum and requires recorded `evidence_flags`.
+`scripts/learning/measure-lesson.py --check-runtime` validates a measurement
+document against the schema and cross-checks that every sub-CAS `VERIFIED` is
+flagged. The 2026-08-06 runtime measurement was upgraded to 1.2; its
+lesson-assisted positive run is the one recorded flag.
 
 ## Phase 2 — Deterministic CAS check
 
@@ -56,6 +64,13 @@ proof mode has a deterministic backend owned by this repository.
 
 **Exit gate:** The positive fixture verifies through the committed script in
 CI, not only through session tooling.
+
+**Status:** Complete. `scripts/verify/symbolic-check.py` simplifies a stated
+residual with SymPy and reports `PASS`/`FAIL`/`UNVERIFIED` with the backend
+name and version; `--positive` declares a claim's positive symbols. Proof
+fixtures carry a machine-readable `residual` (and `positive_symbols`), and
+contract tests exercise the script through the committed fixtures in CI, which
+now installs `sympy==1.14.0`.
 
 ## Phase 3 — Transcript archival policy
 

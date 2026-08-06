@@ -64,13 +64,20 @@
   cache-wording fix, pinned commit), and added the runtime evaluation
   follow-up plan. Merged with an admin bypass during the 2026-08-06 GitHub
   Actions outage; the post-merge `dev` CI run is pending GitHub recovery.
+- Completed runtime evaluation follow-up Phases 1–2 (schema 1.2 evidence-path
+  tracking and the committed deterministic CAS check). Runtime measurements
+  now record a per-run `evidence_path` and flag any sub-CAS `VERIFIED`;
+  `scripts/verify/symbolic-check.py` (SymPy 1.14.0) verifies proof fixtures
+  deterministically in CI. Suite now passes 42 tests.
 
 ## Not started
 
-- Deterministic CAS/statistics scripts.
+- Deterministic statistics scripts (beyond the committed proof-mode CAS check).
 - Codex package materialization and drift checks.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
+- Runtime transcript archival policy and in-scope lesson fixtures
+  (follow-up Phases 3–4).
 
 ## Next approval gate
 

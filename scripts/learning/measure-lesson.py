@@ -13,7 +13,21 @@ from typing import Any
 
 
 VALIDATOR_PATH = Path(__file__).with_name("validate-candidate.py")
+RUNTIME_SCHEMA_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "openai"
+    / "portable"
+    / "contracts"
+    / "runtime-measurement.schema.json"
+)
 VERDICTS = {"VERIFIED", "PARTIALLY_VERIFIED", "FAILED", "UNVERIFIED"}
+EVIDENCE_PATHS = {
+    "symbolic-cas",
+    "deterministic-script",
+    "numerical-examples",
+    "model-reasoning",
+}
+WEAK_VERIFIED_PATHS = {"numerical-examples", "model-reasoning"}
 
 
 class MeasurementError(Exception):
@@ -123,13 +137,106 @@ def write_report(path: Path, report: dict[str, Any]) -> None:
         raise MeasurementError(f"cannot write report: {exc}") from exc
 
 
+def flag_summary(flag: dict[str, Any]) -> tuple[Any, ...]:
+    return (flag.get("fixture"), flag.get("condition"), flag.get("evidence_path"))
+
+
+def check_runtime_measurement(path: Path) -> dict[str, Any]:
+    """Validate a runtime measurement document and flag sub-CAS `VERIFIED` runs."""
+    measurement = load_json(path)
+    validator = load_validator()
+    schema = load_json(RUNTIME_SCHEMA_PATH)
+    errors = validator.validate_schema(measurement, schema)
+
+    runs = measurement.get("runs")
+    if not isinstance(runs, list):
+        return {"errors": errors + ["$.runs: expected array"], "flags": [], "flags_match": False}
+
+    flags: list[dict[str, Any]] = []
+    for run in runs:
+        if not isinstance(run, dict):
+            continue
+        if run.get("verdict") == "VERIFIED" and run.get("evidence_path") in WEAK_VERIFIED_PATHS:
+            flags.append(
+                {
+                    "fixture": run.get("fixture"),
+                    "condition": run.get("condition"),
+                    "evidence_path": run.get("evidence_path"),
+                }
+            )
+
+    recorded = measurement.get("evidence_flags")
+    if not isinstance(recorded, list):
+        errors.append("$.evidence_flags: expected array")
+        recorded = []
+    flags_match = sorted(flag_summary(flag) for flag in flags) == sorted(
+        flag_summary(flag) for flag in recorded
+    )
+    if not flags_match:
+        errors.append(
+            "$.evidence_flags: recorded flags do not match computed sub-CAS VERIFIED runs"
+        )
+
+    if measurement.get("runs_total") != len(runs):
+        errors.append("$.runs_total: must equal the number of runs")
+    expected_matches = sum(
+        1
+        for run in runs
+        if isinstance(run, dict) and run.get("expected_verdict") == run.get("verdict")
+    )
+    if measurement.get("verdicts_match_expected") != expected_matches:
+        errors.append(
+            "$.verdicts_match_expected: does not match the runs' expected-versus-verdict comparison"
+        )
+
+    return {"errors": errors, "flags": flags, "flags_match": flags_match}
+
+
+def render_runtime_check(path: Path, result: dict[str, Any]) -> str:
+    lines = [
+        f"MEASUREMENT: {path}",
+        f"ERRORS: {len(result['errors'])}",
+    ]
+    lines.extend(f"  - {error}" for error in result["errors"])
+    lines.append(f"FLAGS: {len(result['flags'])} sub-CAS VERIFIED run(s)")
+    for flag in result["flags"]:
+        lines.append(
+            f"  - {flag['fixture']} [{flag['condition']}] VERIFIED via {flag['evidence_path']}"
+        )
+    lines.append(f"EVIDENCE_FLAGS_MATCH: {result['flags_match']}")
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("fixture", type=Path)
-    parser.add_argument("lesson", type=Path)
-    parser.add_argument("--with-lesson-verdict", required=True)
+    parser.add_argument("fixture", type=Path, nargs="?")
+    parser.add_argument("lesson", type=Path, nargs="?")
+    parser.add_argument("--with-lesson-verdict", required=False)
+    parser.add_argument(
+        "--check-runtime",
+        type=Path,
+        metavar="MEASUREMENT",
+        help="validate a runtime measurement document (schema 1.2) instead of measuring a lesson",
+    )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
+
+    if args.check_runtime:
+        try:
+            result = check_runtime_measurement(args.check_runtime)
+        except MeasurementError as exc:
+            print(f"INVALID: {exc}", file=sys.stderr)
+            return 1
+        print(render_runtime_check(args.check_runtime, result))
+        return 0 if not result["errors"] else 1
+
+    if args.fixture is None or args.lesson is None or not args.with_lesson_verdict:
+        print(
+            "INVALID: a fixture, lesson, and --with-lesson-verdict are required "
+            "(or use --check-runtime)",
+            file=sys.stderr,
+        )
+        return 1
 
     try:
         report = build_report(
