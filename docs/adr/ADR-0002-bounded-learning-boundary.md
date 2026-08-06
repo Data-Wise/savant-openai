@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted; pilot and pre-commit hardening implemented; runtime evaluation remains deferred.
+Accepted; pilot and pre-commit hardening implemented; runtime Codex evaluation complete.
 
 ## Date
 
@@ -111,8 +111,8 @@ will not promote lessons or modify instructions automatically.
 
 ## Review trigger
 
-Revisit this ADR after runtime Codex evaluation or when there is a concrete need
-for Codex-only lifecycle capture or enforcement.
+Revisit this ADR when there is a concrete need for Codex-only lifecycle capture
+or enforcement, or before adding hooks.
 
 ## Related decisions
 
