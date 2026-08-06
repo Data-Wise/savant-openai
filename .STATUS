@@ -59,6 +59,11 @@
   All 6 runs produced the expected verdict, the approved lesson preserved every
   baseline verdict (no false `VERIFIED`), and the model correctly ignored the
   out-of-scope lesson. Recorded actual model token usage per run.
+- Merged PR #6 as `cbdfb9f`: recorded the runtime Codex evaluation, applied the
+  review amendments (evidence-path variance, transcript-archival limitation,
+  cache-wording fix, pinned commit), and added the runtime evaluation
+  follow-up plan. Merged with an admin bypass during the 2026-08-06 GitHub
+  Actions outage; the post-merge `dev` CI run is pending GitHub recovery.
 
 ## Not started
 
@@ -69,9 +74,11 @@
 
 ## Next approval gate
 
-The CI baseline and runtime Codex evaluation are complete. The next approval
-gate is a separate release/publication plan, or codex-package materialization
-and drift checks; those remain deferred.
+The CI baseline and runtime Codex evaluation are complete and recorded. The
+next proposed work is the runtime evaluation follow-up plan (evidence-path
+tracking and a committed deterministic CAS check) pending approval;
+codex-package materialization and drift checks, and a separate release or
+publication plan, remain deferred.
 
 ## Planning artifacts
 

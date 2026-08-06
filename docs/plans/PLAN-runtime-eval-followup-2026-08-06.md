@@ -3,7 +3,7 @@
 > **Status:** Proposed; awaiting approval
 > **Source:** Review of the 2026-08-06 runtime Codex evaluation
 >   ([MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md))
-> **Branch:** `feature/runtime-codex-eval`
+> **Branch:** `dev` (merged via PR #6 on 2026-08-06)
 > **Date:** 2026-08-06
 
 ## Objective
