@@ -78,8 +78,11 @@ reasoning tokens at the configured high reasoning effort.
   CAS check used in the baseline run. The verdict matched, but the evidence
   path was weaker; it is recorded as `evidence_path: numerical-examples` and
   flagged in `evidence_flags` under schema 1.2.
-- Raw session transcripts are not committed to this repository. Unlike the
-  deterministic dogfood measurement, reproduction requires re-running
+- Raw session transcripts are not archived wholesale; the six verdict excerpts
+  are archived sanitized under
+  [`docs/measurements/logs/runtime-codex-2026-08-06/`](logs/runtime-codex-2026-08-06/)
+  per the [transcript archival policy](../architecture/TRANSCRIPT-ARCHIVAL-POLICY.md).
+  Unlike the deterministic dogfood measurement, reproduction requires re-running
   `codex exec`, and model behavior is non-deterministic.
 - Broader multi-lesson evaluation and package materialization remain separate
   work.

@@ -111,6 +111,7 @@
   ],
   "evidence_sources": [
     "docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.md",
+    "docs/measurements/logs/runtime-codex-2026-08-06/",
     "skills/savant-research-verify/SKILL.md",
     "openai/portable/contracts/verification-status.md",
     "openai/portable/learning/approved/lesson-proof-001.json",

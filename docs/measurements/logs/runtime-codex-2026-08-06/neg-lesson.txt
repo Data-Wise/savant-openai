@@ -1,0 +1,23 @@
+VERDICT: FAILED
+
+CLAIM: For every real \(x\), \(\sqrt{x^2}=x\).
+
+SCOPE: Proof mode; standard principal real square root.
+
+ASSUMPTIONS: \(x\in\mathbb R\). No cancellation or denominator appears, so the lesson’s denominator rule is not applicable beyond scope matching.
+
+CHECKS:
+
+- Counterexample: `python3 -c ...` produced \(x=-1\), \(\sqrt{x^2}=1.0\), \(x=-1\), unequal.
+- Lesson validation: `VALID`.
+- Measurement guard: verdict preserved as `FAILED`.
+- Contract tests: 4/4 passed.
+- Worktree remained clean.
+
+EVIDENCE: The fixture identifies proof mode and expects `FAILED` ([fixture](<repo>/tests/fixtures/planted-proof-error.json:2>)); proof mode requires counterexample testing ([proof rules](<repo>/skills/savant-research-verify/references/proof.md:5>)); the status contract defines `FAILED` for a contradiction or counterexample ([contract](<repo>/openai/portable/contracts/verification-status.md:7>)).
+
+LIMITATIONS: This decisive counterexample is sufficient to refute the universal claim. The corrected identity is \(\sqrt{x^2}=|x|\).
+
+NEXT ACTION: Replace the claim with \(\sqrt{x^2}=|x|\), or restrict it to \(x\ge 0\).
+
+

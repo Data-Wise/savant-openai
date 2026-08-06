@@ -69,6 +69,13 @@
   now record a per-run `evidence_path` and flag any sub-CAS `VERIFIED`;
   `scripts/verify/symbolic-check.py` (SymPy 1.14.0) verifies proof fixtures
   deterministically in CI. Suite now passes 42 tests.
+- Completed runtime evaluation follow-up Phase 3 (transcript archival policy):
+  sanitized verdict excerpts from the 2026-08-06 evaluation are archived under
+  `docs/measurements/logs/runtime-codex-2026-08-06/`; full raw dumps are
+  explicitly non-archived per
+  `docs/architecture/TRANSCRIPT-ARCHIVAL-POLICY.md`, enforced by
+  `scripts/verify/sanitize-transcript.py` and gate tests. Suite now passes 47
+  tests.
 
 ## Not started
 
@@ -76,8 +83,7 @@
 - Codex package materialization and drift checks.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration.
-- Runtime transcript archival policy and in-scope lesson fixtures
-  (follow-up Phases 3–4).
+- In-scope lesson fixtures (follow-up Phase 4).
 
 ## Next approval gate
 

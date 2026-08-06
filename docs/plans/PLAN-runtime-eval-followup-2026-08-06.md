@@ -1,6 +1,6 @@
 # Savant OpenAI — Runtime Evaluation Follow-up Plan
 
-> **Status:** Active — Phases 1–2 complete; Phases 3–5 proposed
+> **Status:** Active — Phases 1–3 complete; Phases 4–5 proposed
 > **Source:** Review of the 2026-08-06 runtime Codex evaluation
 >   ([MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md))
 > **Branch:** `dev` (merged via PR #6 on 2026-08-06)
@@ -19,7 +19,7 @@ approval-gated.
 | --- | --- | --- | --- | --- |
 | P0 | Evidence-path tracking in runtime measurements | Flag `VERIFIED` verdicts reached without a deterministic check | Small | Complete |
 | P0 | Committed deterministic CAS check | Give proof mode a repo-owned backend instead of relying on session tooling | Medium | Complete |
-| P1 | Raw transcript archival policy | Runtime evals are only re-runnable, not script-reproducible | Small | Proposed |
+| P1 | Raw transcript archival policy | Runtime evals are only re-runnable, not script-reproducible | Small | Complete |
 | P1 | In-scope lesson fixtures | Exercise a lesson that actually applies, not only out-of-scope cases | Medium | Proposed |
 | P2 | Broader multi-lesson evaluation | Statistical confidence across lessons, fixtures, and repeated runs | Large | Proposed |
 | P2 | Package materialization and drift checks | Still gated on a separate plan | Medium | Deferred |
@@ -85,6 +85,15 @@ non-deterministic and only re-runnable.
 
 **Exit gate:** A written policy and one archived or explicitly non-archived
 measurement produced under it.
+
+**Status:** Complete. The
+[transcript archival policy](../architecture/TRANSCRIPT-ARCHIVAL-POLICY.md)
+adopts sanitized verdict excerpts under `docs/measurements/logs/` and
+explicitly non-archives full raw dumps (environment-specific context, size,
+CI-artifact inapplicability). `scripts/verify/sanitize-transcript.py` extracts
+the final verdict block, redacts `<repo>`/`<codex-home>`/`<home>`, and refuses
+secret-like or unresolved home paths. The 2026-08-06 measurement's six excerpts
+are archived and gated by tests.
 
 ## Phase 4 — In-scope lesson fixtures
 
