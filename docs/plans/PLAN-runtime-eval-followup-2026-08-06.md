@@ -1,6 +1,6 @@
 # Savant OpenAI — Runtime Evaluation Follow-up Plan
 
-> **Status:** Active — Phases 1–3 complete; Phases 4–5 proposed
+> **Status:** Active — Phases 1–4 complete; Phase 5 proposed
 > **Source:** Review of the 2026-08-06 runtime Codex evaluation
 >   ([MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md))
 > **Branch:** `dev` (merged via PR #6 on 2026-08-06)
@@ -20,7 +20,7 @@ approval-gated.
 | P0 | Evidence-path tracking in runtime measurements | Flag `VERIFIED` verdicts reached without a deterministic check | Small | Complete |
 | P0 | Committed deterministic CAS check | Give proof mode a repo-owned backend instead of relying on session tooling | Medium | Complete |
 | P1 | Raw transcript archival policy | Runtime evals are only re-runnable, not script-reproducible | Small | Complete |
-| P1 | In-scope lesson fixtures | Exercise a lesson that actually applies, not only out-of-scope cases | Medium | Proposed |
+| P1 | In-scope lesson fixtures | Exercise a lesson that actually applies, not only out-of-scope cases | Medium | Complete |
 | P2 | Broader multi-lesson evaluation | Statistical confidence across lessons, fixtures, and repeated runs | Large | Proposed |
 | P2 | Package materialization and drift checks | Still gated on a separate plan | Medium | Deferred |
 
@@ -106,6 +106,15 @@ are archived and gated by tests.
 
 **Exit gate:** A measurement showing the lesson's effect (or demonstrated
 no-op with evidence) on an in-scope fixture.
+
+**Status:** Complete. Added
+`tests/fixtures/cancellation-without-assumption.json` (a claim that cancels
+`(x - 1)` without stating `x != 1`). The baseline-versus-lesson matrix ran in
+actual `codex exec` sessions: both produced the expected `FAILED`, and the
+lesson-assisted run explicitly judged the lesson in scope, stated the missing
+denominator assumption, and recommended the corrected domain.
+Recorded in
+[MEASUREMENT-in-scope-lesson-2026-08-06.md](../measurements/MEASUREMENT-in-scope-lesson-2026-08-06.md).
 
 ## Phase 5 — Broader multi-lesson evaluation
 

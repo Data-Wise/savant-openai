@@ -13,6 +13,7 @@ STATUS_CONTRACT = (
 FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures"
 
 VALID_STATUSES = {"PASS", "FAIL", "UNVERIFIED"}
+VERDICT_STATUSES = {"VERIFIED", "PARTIALLY_VERIFIED", "FAILED", "UNVERIFIED"}
 
 
 def run_check(*args):
@@ -104,6 +105,27 @@ class SymbolicCheckTests(unittest.TestCase):
         self.assertEqual(payload["simplified"], "0")
         self.assertEqual(payload["positive_symbols"], ["x"])
         self.assertIn("backend_version", payload)
+
+
+class RuntimeFixtureTests(unittest.TestCase):
+    def test_runtime_fixtures_have_valid_modes_and_verdicts(self):
+        for path in sorted(FIXTURE_DIR.glob("*.json")):
+            with self.subTest(fixture=path.name):
+                fixture = json.loads(path.read_text(encoding="utf-8"))
+                self.assertIn(
+                    fixture["mode"],
+                    {"proof", "statistics", "simulation", "reproducibility"},
+                )
+                self.assertIn(fixture["expected_verdict"], VERDICT_STATUSES)
+
+    def test_domain_assumption_fixture_omits_a_residual(self):
+        fixture = json.loads(
+            (FIXTURE_DIR / "cancellation-without-assumption.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertNotIn("residual", fixture)
+        self.assertEqual(fixture["expected_verdict"], "FAILED")
 
 
 if __name__ == "__main__":

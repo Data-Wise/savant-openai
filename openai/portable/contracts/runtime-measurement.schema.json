@@ -24,6 +24,7 @@
     "skill_loading": {"type": "string"},
     "workspace": {"type": "string"},
     "workspace_commit": {"type": "string"},
+    "workspace_note": {"type": "string"},
     "sandbox": {"type": "string", "minLength": 1},
     "session_mode": {"type": "string"},
     "lesson": {
