@@ -7,6 +7,7 @@
   "skill": "savant-research-verify (namespace savant-openai:savant-research-verify)",
   "skill_loading": "symlinked to ~/.codex/skills; verified present in session skill catalog",
   "workspace": "savant-openai repo root",
+  "workspace_commit": "d8f8d7a",
   "sandbox": "read-only",
   "session_mode": "ephemeral (no session persisted)",
   "lesson": {
@@ -91,7 +92,8 @@
     }
   ],
   "verdict_preserved": true,
-  "verdicts_match_expected": "6/6",
+  "verdicts_match_expected": 6,
+  "runs_total": 6,
   "false_verified_created": false,
   "lesson_scoping": "The approved lesson concerns denominator cancellation; none of the three fixtures involve cancellation. The model explicitly noted the lesson was out of scope and ignored it where applicable.",
   "evidence_sources": [
@@ -105,8 +107,9 @@
   ],
   "limitations": [
     "Single Codex session model and reasoning effort; not a model-accuracy benchmark.",
-    "Token usage reflects the installed session environment and was not cached across runs.",
-    "The positive fixture was verified via SymPy simplification; no CAS script is committed in this repository yet.",
+    "Token usage reflects the installed session environment; input caching varied across runs, so per-run deltas are not attributable to the lesson.",
+    "The positive fixture was verified via SymPy simplification in the baseline run; in the lesson-assisted run the VERIFIED verdict was justified by structural reasoning plus numerical smoke checks, a weaker evidence path. No CAS script is committed in this repository yet.",
+    "Raw session transcripts are not committed; reproduction requires re-running codex exec, and model behavior is non-deterministic.",
     "One fixture per class; broader multi-lesson evaluation remains separate."
   ]
 }

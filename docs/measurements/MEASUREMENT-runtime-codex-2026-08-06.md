@@ -56,6 +56,14 @@ reasoning tokens at the configured high reasoning effort.
   local `~/.codex/skills` symlink; no marketplace or publication path was used.
 - The positive fixture passed a symbolic check available in the session; no
   CAS script is committed to this repository.
+- In the lesson-assisted positive run, the `VERIFIED` verdict was justified by
+  structural reasoning plus numerical smoke checks rather than the symbolic
+  CAS check used in the baseline run. The verdict matched, but the evidence
+  path was weaker; justification quality should be tracked in broader
+  evaluation.
+- Raw session transcripts are not committed to this repository. Unlike the
+  deterministic dogfood measurement, reproduction requires re-running
+  `codex exec`, and model behavior is non-deterministic.
 - Broader multi-lesson evaluation and package materialization remain separate
   work.
 

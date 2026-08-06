@@ -81,6 +81,7 @@ and drift checks; those remain deferred.
 - [Adversarial remediation plan](docs/plans/PLAN-adversarial-remediation-2026-08-05.md)
 - [Dogfood measurement](docs/measurements/MEASUREMENT-bounded-learning-2026-08-04.md)
 - [Runtime Codex measurement](docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.md)
+- [Runtime evaluation follow-up plan](docs/plans/PLAN-runtime-eval-followup-2026-08-06.md)
 - [Repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)
 - [CI baseline plan](docs/plans/PLAN-ci-baseline.md)
 - [CI baseline TODO](docs/todo/TODO-ci-baseline.md)
