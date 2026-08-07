@@ -14,7 +14,7 @@ This repository is a **spec-first pilot**. It defines the boundary between:
 The existing Claude Savant plugin remains the source of current research
 workflows and is intentionally unchanged by this pilot.
 
-## First skill
+## Core skills
 
 `$savant-research-verify` is a focused router for:
 
@@ -25,6 +25,11 @@ workflows and is intentionally unchanged by this pilot.
 
 It does not claim that a language-model derivation is correct without
 recorded evidence.
+
+`$savant-teach-mathematical-proofs` is a separate pedagogy workflow for
+turning a stated proof into a fully taught proof. It preserves the source
+mathematics, audits definition order, restores skipped algebra, and supports
+Markdown, LaTeX, and Quarto source.
 
 ## Bounded learning
 
