@@ -3,6 +3,14 @@
 This repository contains the OpenAI-facing adapter for Savant research
 verification. Keep it portable, small, and evidence-first.
 
+## Where to look
+
+- [README.md](README.md) — landing page and skills overview.
+- [docs/ROADMAP.md](docs/ROADMAP.md) — forward-looking work, priorities, and gates.
+- [.STATUS](.STATUS) — current project state.
+- [docs/architecture/SAVANT-OPENAI-PLAN.md](docs/architecture/SAVANT-OPENAI-PLAN.md)
+  — pilot plan and boundary decisions.
+
 ## Boundaries
 
 - Do not modify the Claude Savant repository from this repository.

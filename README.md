@@ -48,7 +48,7 @@ metadata.
 ## Status
 
 The repository uses `dev` as its GitHub default integration branch, with
-implementation work on `feature/bootstrap-savant-openai`.
+implementation work on `feature/*` branches merged via pull request.
 Implementation, packaging, installation, commit, push, and publication remain
 approval-gated.
 
