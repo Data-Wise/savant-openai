@@ -175,4 +175,3 @@ Report `passed`, or list each dependency violation and the exposition-only corre
 Write for a mathematically capable reader studying independently. Prefer precise local references, short explanations beside equations, explicit causal language, and a clear distinction between “why valid” and “why now.” Avoid rhetorical flourishes, detached essays, unexplained jargon, vague pronouns, and unnecessary repetition.
 
 When working in a repository, preserve user changes and unrelated edits. Do not commit, publish, or alter external systems unless the user separately requests those actions.
-

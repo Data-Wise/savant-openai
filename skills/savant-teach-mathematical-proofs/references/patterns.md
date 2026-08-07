@@ -322,4 +322,3 @@ The final report should also state:
 - whether a worked instance was added;
 - all integrity markers and the point where teaching stopped, if any;
 - whether the definition-order audit passed.
-
