@@ -1,6 +1,6 @@
 # Savant OpenAI pilot plan
 
-**Status:** Pilot implemented; pre-commit hardening complete; runtime Codex evaluation complete
+**Status:** Pilot implemented; pre-commit hardening complete; runtime Codex evaluation complete; follow-up Phases 1–4 merged
 **Scope:** First OpenAI-facing research-verification adapter
 **Date:** 2026-08-04
 
@@ -77,17 +77,27 @@ validates a step, not an entire theorem.
 
 ## Migration sequence
 
+Status reflects the 2026-08-07 state; see [the roadmap](../ROADMAP.md) and
+[`.STATUS`](../../.STATUS) for the current picture.
+
 1. Approve this plan and [ADR-0001](../adr/ADR-0001-savant-openai-boundary.md).
+   (Completed.)
 2. Implement and verify the evidence-report and learning contract tests.
-3. Add one deterministic proof/CAS adapter.
+   (Completed.)
+3. Add one deterministic proof/CAS adapter. (Completed via PR #7: the
+   committed `scripts/verify/symbolic-check.py` SymPy residual check.)
 4. Add statistical and simulation adapters only after the first contract passes.
+   (Not started; the deterministic statistics scripts are a roadmap item.)
 5. Run Codex evaluation fixtures, including unavailable-backend cases.
    (Completed 2026-08-06: all three fixture classes, baseline and
    lesson-assisted, produced the expected verdict.)
 6. Add packaging and drift checks after runtime evidence justifies them.
+   (Deferred; separate plan required.)
 7. Implement the bounded-learning schema and validator described in
-   [BOUNDED-LEARNING.md](BOUNDED-LEARNING.md).
-8. Reassess whether a Codex-only extension is justified.
+   [BOUNDED-LEARNING.md](BOUNDED-LEARNING.md). (Completed: candidate lessons,
+   deterministic validation, human promotion, regression fixtures.)
+8. Reassess whether a Codex-only extension is justified. (Not started;
+   roadmap P2, after packaging evidence exists.)
 
 ## Non-goals for this pilot
 
@@ -125,5 +135,6 @@ the Codex skill and preflight workflow.
 The next repository-integration increment was the
 [CI baseline plan](../plans/PLAN-ci-baseline.md), which keeps checks local,
 read-only, and separate from runtime Codex evaluation. Runtime Codex
-evaluation completed on 2026-08-06; packaging and drift checks remain gated on
-a separate plan.
+evaluation completed on 2026-08-06; the follow-up Phases 1–4 merged via
+PR #7 on 2026-08-07. Packaging and drift checks remain gated on a separate
+plan; see [the roadmap](../ROADMAP.md) for the forward-looking sequence.

@@ -56,3 +56,5 @@ Read the [repository workflow and protection policy](docs/architecture/REPOSITOR
 for the Codex-session boundary and branch settings.
 
 Read [the architecture plan](docs/architecture/SAVANT-OPENAI-PLAN.md) first.
+
+See [the roadmap](docs/ROADMAP.md) for the forward-looking sequence.
