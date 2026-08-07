@@ -1,0 +1,4 @@
+interface:
+  display_name: "Savant Teach Mathematical Proofs"
+  short_description: "Turn stated proofs into taught proofs"
+  default_prompt: "Use $savant-teach-mathematical-proofs to turn this stated proof into a fully taught proof without changing its mathematics."

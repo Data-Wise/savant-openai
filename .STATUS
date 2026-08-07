@@ -25,7 +25,11 @@
 - Added versioned approved/rejected/superseded lesson storage.
 - Added the explicitly invoked `savant-learning-review` skill.
 - Added the Codex-native `savant-repo-scaffold` skill for remote setup,
-  `dev-tools` branch topology, plugin detection, and preflight validation.
+  `dev-tools` branch topology, plugin detection, skill validation, and
+  preflight validation.
+- Added the standalone `savant-teach-mathematical-proofs` skill with
+  mathematical-immutability safeguards, dependency auditing, worked-example
+  rules, and Markdown/LaTeX/Quarto source-format guidance.
 - Added six promotion lifecycle tests and four measurement tests; the full
   suite now passes 28 tests.
 - Added timezone, evidence-reference, nested-contract, manifest, and
