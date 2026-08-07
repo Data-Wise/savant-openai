@@ -1,6 +1,6 @@
 ---
 name: savant-teach-mathematical-proofs
-description: Convert a stated mathematical proof into a fully taught, self-study proof without changing its mathematics. Use when asked to teach, expand, unpack, annotate, or pedagogically rewrite proofs in Markdown, LaTeX, Quarto, or pasted text; restore skipped algebra, justify and motivate each substantive step, define notation at first use, audit dependencies and definition order, and optionally add one hand-checkable worked instance while preserving the source's equations, assumptions, notation, structure, and file syntax.
+description: Convert a stated mathematical proof into a fully taught proof without changing its mathematics. Use when asked to teach, expand, or annotate proofs in Markdown, LaTeX, Quarto, or pasted text: restore skipped algebra, justify each step, define notation at first use, audit definition order, and optionally add one worked instance while preserving the source's equations, assumptions, and format.
 ---
 
 # Teach Mathematical Proofs
@@ -8,6 +8,8 @@ description: Convert a stated mathematical proof into a fully taught, self-study
 Turn a **stated proof** into a **fully taught proof**. The source mathematics is authoritative: expose reasoning that is already present, but do not redesign, repair, strengthen, or replace the argument.
 
 Use this skill for pasted proof passages and for source files ending in `.md`, `.qmd`, `.tex`, or closely related plain-text formats. Work from source, not from a rendered PDF or HTML copy when the source is available.
+
+If you need an evidence-based verdict on whether a proof is valid, use `savant-research-verify` instead. This skill teaches; it does not produce a verification verdict.
 
 Load [references/patterns.md](references/patterns.md) when the proof has dense algebra, delicate inequality conditions, difficult first-use dependencies, a needed worked instance, or source-format preservation questions. It contains concrete phrasing patterns and failure cases; use it as a reference, not as a substitute for checking the supplied proof.
 

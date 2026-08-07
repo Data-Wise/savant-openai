@@ -20,22 +20,22 @@ Every substantive step needs two different explanations.
 
 ### Source pattern
 
-`text
+```text
 Using Equation (3), we obtain the following expression.
 
     [new expression]
-`
+```
 
 ### Taught pattern
 
-`text
+```text
 Substituting Equation (3) for the within-group term is valid because
 Equation (3) gives that term an equal expression. We make this
 substitution now so that both summands use the same quantities and can
 be collected on the next line.
 
     [new expression]
-`
+```
 
 The first sentence answers “why is this valid?” The second answers “why
 do it now?” If one sentence would be vague without the other, keep both.
@@ -62,23 +62,23 @@ reproducible. Keep every original source line unchanged.
 
 If the source moves from
 
-`latex
+```latex
 \[
   (a+b)^2 - a^2
 \]
-`
+```
 
 to
 
-`latex
+```latex
 \[
   2ab+b^2,
 \]
-`
+```
 
 make the omitted rule visible:
 
-`latex
+```latex
 \[
 \begin{aligned}
 (a+b)^2-a^2
@@ -88,7 +88,7 @@ make the omitted rule visible:
       &&\text{(cancel the two \(a^2\) terms).}
 \end{aligned}
 \]
-`
+```
 
 Then add a local motivation, for example: “This form exposes the two
 terms whose size will be controlled separately.” Do not replace the
@@ -119,17 +119,17 @@ rearrangement.
 
 ### Safe pattern
 
-`text
+```text
 Because \(m>0\), multiplying both sides by \(m\) preserves the direction
 of the inequality. We do this to remove the denominator before applying
 the previously established bound.
-`
+```
 
 ### Failure pattern
 
-`text
+```text
 Assume \(x>0\). Therefore \(x(x-1)\ge 0\).
-`
+```
 
 This is not licensed: \(x>0\) does not imply \(x-1\ge0\). For example,
 values in \(0<x<1\) make the second factor negative. Mark the displayed
@@ -153,24 +153,24 @@ term just because it appears later in the source.
 
 ### Premature reference
 
-`text
+```text
 The variance term vanishes as \(m\to\infty\).
 ...
 \operatorname{Var}(X)=\mathbb{E}[(X-\mathbb{E}X)^2].
-`
+```
 
 If “variance” and `\operatorname{Var}` were not already prerequisites,
 the first sentence is premature.
 
 ### Order-safe revision
 
-`text
+```text
 Here, \(\operatorname{Var}(X)\) denotes the variance of \(X\), defined by
 \(\mathbb{E}[(X-\mathbb{E}X)^2]\). This is the nonnegative spread measure
 that appears in the next bound.
 
 The variance term then vanishes as \(m\to\infty\).
-`
+```
 
 If the source defined the term earlier, use an exact location instead:
 “using the definition of variance in the paragraph before Proposition 2.”
@@ -193,17 +193,17 @@ A gloss must interpret the result and connect it to the proof's purpose.
 
 ### Weak gloss
 
-`text
+```text
 Thus \(R_m\le C/m\). This is the result we wanted.
-`
+```
 
 ### Strong gloss
 
-`text
+```text
 Thus \(R_m\le C/m\). The remainder is at most a constant times
 \(1/m\), so its contribution shrinks to zero as \(m\) grows; this is the
 rate needed for the next limiting argument.
-`
+```
 
 Gloss major equations, bounds, identities, and conclusions immediately
 after they are reached. Do not gloss every punctuation-level algebra
@@ -253,7 +253,7 @@ example to “test” or repair it during the teaching pass.
 
 Use a precise report rather than silently correcting the proof:
 
-`text
+```text
 [POSSIBLE MATHEMATICAL ERROR]
 Location: the transition from Equation (5) to Equation (6).
 Problem: the argument changes \(A\le B\) into \(A<B\) without a strictness
@@ -261,7 +261,7 @@ condition.
 Why it is problematic: the supplied assumptions establish only
 non-strict inequality.
 Teaching status: expansion stopped at this transition.
-`
+```
 
 If the issue is missing support rather than an apparent contradiction,
 use one of these markers:
