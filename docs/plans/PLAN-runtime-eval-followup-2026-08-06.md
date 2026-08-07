@@ -1,10 +1,15 @@
 # Savant OpenAI — Runtime Evaluation Follow-up Plan
 
-> **Status:** Active — Phases 1–4 complete; Phase 5 proposed
+> **Status:** Closed — Phases 1–4 merged to `dev` via PR #7 (`32737d9`) on
+>   2026-08-07; Phase 5 proposed as future work
 > **Source:** Review of the 2026-08-06 runtime Codex evaluation
 >   ([MEASUREMENT-runtime-codex-2026-08-06.md](../measurements/MEASUREMENT-runtime-codex-2026-08-06.md))
 > **Branch:** `dev` (merged via PR #6 on 2026-08-06)
 > **Date:** 2026-08-06
+
+> **Closing note (2026-08-07):** Phases 1–4 are complete and recorded in
+> `.STATUS` (see the "Merged PR #7" entry). Phase 5 (broader multi-lesson
+> evaluation) opens as new work under a separate plan when approved.
 
 ## Objective
 
