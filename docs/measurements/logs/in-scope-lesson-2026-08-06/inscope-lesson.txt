@@ -1,0 +1,11 @@
+VERDICT: FAILED
+CLAIM: For all real \(x\), \((x^2-1)/(x-1)=x+1\).
+SCOPE: Proof-mode verification over real \(x\).
+ASSUMPTIONS: No \(x\ne1\) denominator assumption stated. Approved `lesson-proof-001` matches and was applied.
+CHECKS: SymPy 1.14.0 simplifies the residual to `0` (`PASS`); at \(x=1\), the denominator is zero and the left side is undefined.
+EVIDENCE: The identity holds only for \(x\ne1\). The approved lesson validator returned `VALID`.
+LIMITATIONS: CAS checked algebra, not domain assumptions.
+HUMAN REVIEW: Confirm the intended corrected domain.
+NEXT ACTION: State \(x\ne1\), then re-run verification.
+
+No files were changed.

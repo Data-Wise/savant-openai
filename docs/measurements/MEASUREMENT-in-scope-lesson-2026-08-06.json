@@ -1,0 +1,69 @@
+{
+  "measurement_schema_version": "1.2",
+  "date": "2026-08-06",
+  "surface": "runtime Codex session (codex exec)",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "high",
+  "skill": "savant-research-verify (namespace savant-openai:savant-research-verify)",
+  "skill_loading": "symlinked to ~/.codex/skills; verified present in session skill catalog",
+  "workspace": "savant-openai repo root",
+  "workspace_commit": "30e289b",
+  "workspace_note": "The fixture tests/fixtures/cancellation-without-assumption.json was an uncommitted working-tree addition during the runs; it is recorded in the commit that ships this measurement.",
+  "sandbox": "read-only",
+  "session_mode": "ephemeral (no session persisted)",
+  "lesson": {
+    "id": "lesson-proof-001",
+    "size_bytes": 652,
+    "heuristic_added_tokens": 163,
+    "token_estimator": "ceil(UTF-8 bytes / 4); heuristic, not model-token accounting"
+  },
+  "environment_overhead_note": "Input token counts are dominated by the installed session skill/plugin catalog and cache variance; per-run deltas are not attributable to the lesson.",
+  "runs": [
+    {
+      "fixture": "cancellation-without-assumption",
+      "fixture_path": "tests/fixtures/cancellation-without-assumption.json",
+      "expected_verdict": "FAILED",
+      "condition": "baseline",
+      "verdict": "FAILED",
+      "match": true,
+      "input_tokens": 250920,
+      "cached_input_tokens": 219136,
+      "output_tokens": 3183,
+      "reasoning_output_tokens": 1369,
+      "evidence_path": "numerical-examples"
+    },
+    {
+      "fixture": "cancellation-without-assumption",
+      "fixture_path": "tests/fixtures/cancellation-without-assumption.json",
+      "expected_verdict": "FAILED",
+      "condition": "lesson-assisted",
+      "verdict": "FAILED",
+      "match": true,
+      "input_tokens": 199714,
+      "cached_input_tokens": 172288,
+      "output_tokens": 3380,
+      "reasoning_output_tokens": 1591,
+      "evidence_path": "numerical-examples"
+    }
+  ],
+  "verdict_preserved": true,
+  "verdicts_match_expected": 2,
+  "runs_total": 2,
+  "false_verified_created": false,
+  "lesson_scoping": "The lesson concerns denominator cancellation. The fixture's claim cancels (x - 1) without stating x != 1, so the lesson is genuinely in scope. The lesson-assisted run explicitly judged the lesson in scope (\"matches and was applied\"), validated it, stated the missing x != 1 denominator assumption, and recommended re-verification under the corrected domain.",
+  "evidence_flags": [],
+  "evidence_sources": [
+    "docs/measurements/MEASUREMENT-in-scope-lesson-2026-08-06.md",
+    "docs/measurements/logs/in-scope-lesson-2026-08-06/",
+    "skills/savant-research-verify/SKILL.md",
+    "openai/portable/contracts/verification-status.md",
+    "openai/portable/learning/approved/lesson-proof-001.json",
+    "tests/fixtures/cancellation-without-assumption.json"
+  ],
+  "limitations": [
+    "Single model, single reasoning effort, one in-scope fixture, one run per condition; not a model-accuracy benchmark.",
+    "Both runs judged FAILED: the baseline via a boundary counterexample at x = 1; the lesson-assisted run additionally invoked the approved lesson and named the missing denominator assumption. The lesson's demonstrated effect is qualitative (explicit rule application and assumption naming), not a verdict change.",
+    "The SymPy residual of (x^2 - 1)/(x - 1) - (x + 1) simplifies to 0 (PASS), which would falsely verify the universal claim; the fixture deliberately carries no residual field because the defect is a missing domain assumption, which residual simplification cannot detect. Both runs correctly did not treat the CAS PASS as establishing the universal claim.",
+    "Raw session transcripts are not archived; sanitized verdict excerpts are archived under docs/measurements/logs/in-scope-lesson-2026-08-06/ per the transcript archival policy."
+  ]
+}

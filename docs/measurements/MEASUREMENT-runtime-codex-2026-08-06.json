@@ -1,5 +1,5 @@
 {
-  "measurement_schema_version": "1.1",
+  "measurement_schema_version": "1.2",
   "date": "2026-08-06",
   "surface": "runtime Codex session (codex exec)",
   "model": "gpt-5.6-luna",
@@ -28,7 +28,8 @@
       "input_tokens": 283673,
       "cached_input_tokens": 252416,
       "output_tokens": 3723,
-      "reasoning_output_tokens": 2027
+      "reasoning_output_tokens": 2027,
+      "evidence_path": "symbolic-cas"
     },
     {
       "fixture": "correct-proof-step",
@@ -40,7 +41,8 @@
       "input_tokens": 287697,
       "cached_input_tokens": 250624,
       "output_tokens": 6186,
-      "reasoning_output_tokens": 3641
+      "reasoning_output_tokens": 3641,
+      "evidence_path": "numerical-examples"
     },
     {
       "fixture": "planted-proof-error",
@@ -52,7 +54,8 @@
       "input_tokens": 159381,
       "cached_input_tokens": 150016,
       "output_tokens": 3042,
-      "reasoning_output_tokens": 1851
+      "reasoning_output_tokens": 1851,
+      "evidence_path": "numerical-examples"
     },
     {
       "fixture": "planted-proof-error",
@@ -64,7 +67,8 @@
       "input_tokens": 356309,
       "cached_input_tokens": 312832,
       "output_tokens": 6297,
-      "reasoning_output_tokens": 3594
+      "reasoning_output_tokens": 3594,
+      "evidence_path": "numerical-examples"
     },
     {
       "fixture": "backend-unavailable",
@@ -76,7 +80,8 @@
       "input_tokens": 269299,
       "cached_input_tokens": 227328,
       "output_tokens": 4316,
-      "reasoning_output_tokens": 1708
+      "reasoning_output_tokens": 1708,
+      "evidence_path": "model-reasoning"
     },
     {
       "fixture": "backend-unavailable",
@@ -88,7 +93,8 @@
       "input_tokens": 175119,
       "cached_input_tokens": 145920,
       "output_tokens": 4181,
-      "reasoning_output_tokens": 2096
+      "reasoning_output_tokens": 2096,
+      "evidence_path": "model-reasoning"
     }
   ],
   "verdict_preserved": true,
@@ -96,8 +102,16 @@
   "runs_total": 6,
   "false_verified_created": false,
   "lesson_scoping": "The approved lesson concerns denominator cancellation; none of the three fixtures involve cancellation. The model explicitly noted the lesson was out of scope and ignored it where applicable.",
+  "evidence_flags": [
+    {
+      "fixture": "correct-proof-step",
+      "condition": "lesson-assisted",
+      "evidence_path": "numerical-examples"
+    }
+  ],
   "evidence_sources": [
     "docs/measurements/MEASUREMENT-runtime-codex-2026-08-06.md",
+    "docs/measurements/logs/runtime-codex-2026-08-06/",
     "skills/savant-research-verify/SKILL.md",
     "openai/portable/contracts/verification-status.md",
     "openai/portable/learning/approved/lesson-proof-001.json",
@@ -108,7 +122,7 @@
   "limitations": [
     "Single Codex session model and reasoning effort; not a model-accuracy benchmark.",
     "Token usage reflects the installed session environment; input caching varied across runs, so per-run deltas are not attributable to the lesson.",
-    "The positive fixture was verified via SymPy simplification in the baseline run; in the lesson-assisted run the VERIFIED verdict was justified by structural reasoning plus numerical smoke checks, a weaker evidence path. No CAS script is committed in this repository yet.",
+    "The positive fixture was verified via SymPy simplification in the baseline run (evidence_path `symbolic-cas`); in the lesson-assisted run the VERIFIED verdict was justified by structural reasoning plus numerical smoke checks (evidence_path `numerical-examples`), a weaker path. Schema 1.2 flags this run in evidence_flags; no CAS script is committed in this repository yet.",
     "Raw session transcripts are not committed; reproduction requires re-running codex exec, and model behavior is non-deterministic.",
     "One fixture per class; broader multi-lesson evaluation remains separate."
   ]

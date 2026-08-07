@@ -1,0 +1,23 @@
+VERIFIED
+
+CLAIM: For real \(x>0\), \(\log(\exp(x))=x\).
+
+SCOPE: Proof mode; \(\log\) is the natural logarithm and \(\exp\) the real exponential.
+
+ASSUMPTIONS: \(\exp(x)>0\), so \(\log(\exp(x))\) is defined. The approved lesson concerns denominator cancellation and is out of scope; it was ignored.
+
+CHECKS:
+
+- Structural proof: \(\log\) and \(\exp\) are inverse functions on their domains.
+- Python smoke check passed for positive values near zero through 10.
+- Skill validator passed: 3 skills.
+- Contract tests passed: 4/4.
+- Working tree unchanged.
+
+EVIDENCE: [fixture](<repo>/tests/fixtures/correct-proof-step.json:1), [verification contract](<repo>/openai/portable/contracts/verification-status.md:3).
+
+LIMITATIONS: Verdict assumes standard natural-log notation. Numerical checks support but do not establish the proof.
+
+HUMAN REVIEW: None required unless `log` was intended to mean a different logarithm base.
+
+NEXT ACTION: Proceed to the next claim.

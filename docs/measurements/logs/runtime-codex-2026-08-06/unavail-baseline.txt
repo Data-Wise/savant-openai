@@ -1,0 +1,18 @@
+VERDICT: UNVERIFIED
+
+CLAIM: “A symbolic equality requiring an unavailable backend.”
+
+SCOPE: Proof-mode fixture only.
+
+ASSUMPTIONS: The required symbolic backend is unavailable; no expression or backend name is provided.
+
+CHECKS:
+
+- Fixture JSON and status fields: PASS.
+- Targeted contract/fixture tests: 5 passed.
+- Symbolic proof check: UNVERIFIED because the backend is unavailable.
+- Full 28-test suite: blocked by read-only sandbox temp/file-write restrictions.
+
+EVIDENCE: [fixture](<repo>/tests/fixtures/backend-unavailable.json:1>), [proof reference](<repo>/skills/savant-research-verify/references/proof.md:3>), [status contract](<repo>/openai/portable/contracts/verification-status.md:3>).
+
+LIMITATIONS: No algebraic verification was possible; no files were modified.

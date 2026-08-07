@@ -1,0 +1,18 @@
+VERDICT: VERIFIED
+
+CLAIM: For real \(x>0\), \(\log(\exp(x))=x\).
+
+SCOPE: Standard real natural logarithm and exponential.
+
+CHECKS:
+
+- Fixture parsed successfully; mode is `proof`.
+- `python3` with SymPy 1.14.0: simplified residual `log(exp(x)) - x` to `0`.
+- Symbolic check: `PASS`.
+- Boundary/context probes at \(x=0\) and \(x=-1\) also returned the identity.
+
+LIMITATIONS: Verifies this algebraic step only, not any broader theorem.
+
+HUMAN REVIEW: Not performed.
+
+NEXT ACTION: None for this fixture.
