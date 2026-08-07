@@ -7,6 +7,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = REPO_ROOT / "scripts" / "learning" / "validate-candidate.py"
 EVIDENCE_SCHEMA = REPO_ROOT / "openai" / "portable" / "contracts" / "evidence-report.schema.json"
+RUNTIME_SCHEMA = REPO_ROOT / "openai" / "portable" / "contracts" / "runtime-measurement.schema.json"
+RUNTIME_MEASUREMENT = REPO_ROOT / "docs" / "measurements" / "MEASUREMENT-runtime-codex-2026-08-06.json"
 
 
 def load_validator():
@@ -89,6 +91,46 @@ class ContractTests(unittest.TestCase):
                 }
                 self.assertEqual(fields["name"].split(":", 1)[1].strip(), skill_file.parent.name)
                 self.assertIn("description", fields)
+
+    def _runtime_measurement(self, **overrides):
+        measurement = json.loads(RUNTIME_MEASUREMENT.read_text(encoding="utf-8"))
+        measurement.update(overrides)
+        return measurement
+
+    def test_runtime_measurement_schema_accepts_the_committed_measurement(self):
+        validator = load_validator()
+        errors = validator.validate_schema(
+            self._runtime_measurement(),
+            json.loads(RUNTIME_SCHEMA.read_text(encoding="utf-8")),
+        )
+        self.assertEqual(errors, [])
+
+    def test_runtime_measurement_schema_rejects_an_unknown_evidence_path(self):
+        measurement = self._runtime_measurement()
+        measurement["runs"][0]["evidence_path"] = "guessing"
+        validator = load_validator()
+        errors = validator.validate_schema(
+            measurement, json.loads(RUNTIME_SCHEMA.read_text(encoding="utf-8"))
+        )
+        self.assertTrue(any("evidence_path" in error for error in errors))
+
+    def test_runtime_measurement_schema_rejects_an_unknown_flag_evidence_path(self):
+        measurement = self._runtime_measurement()
+        measurement["evidence_flags"][0]["evidence_path"] = "guessing"
+        validator = load_validator()
+        errors = validator.validate_schema(
+            measurement, json.loads(RUNTIME_SCHEMA.read_text(encoding="utf-8"))
+        )
+        self.assertTrue(any("evidence_path" in error for error in errors))
+
+    def test_runtime_measurement_schema_rejects_an_unknown_verdict(self):
+        measurement = self._runtime_measurement()
+        measurement["runs"][0]["verdict"] = "MAYBE"
+        validator = load_validator()
+        errors = validator.validate_schema(
+            measurement, json.loads(RUNTIME_SCHEMA.read_text(encoding="utf-8"))
+        )
+        self.assertTrue(any("verdict" in error for error in errors))
 
 
 if __name__ == "__main__":

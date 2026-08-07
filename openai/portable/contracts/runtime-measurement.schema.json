@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://data-wise.github.io/savant-openai/runtime-measurement.schema.json",
+  "title": "Savant Runtime Measurement",
+  "description": "Schema for runtime evaluation measurements. Version 1.2 adds a per-run evidence_path and requires any sub-CAS VERIFIED verdict to be recorded in evidence_flags.",
+  "type": "object",
+  "required": [
+    "measurement_schema_version",
+    "date",
+    "surface",
+    "model",
+    "sandbox",
+    "runs",
+    "verdicts_match_expected",
+    "runs_total"
+  ],
+  "properties": {
+    "measurement_schema_version": {"const": "1.2"},
+    "date": {"type": "string", "minLength": 1},
+    "surface": {"type": "string", "minLength": 1},
+    "model": {"type": "string", "minLength": 1},
+    "reasoning_effort": {"type": "string"},
+    "skill": {"type": "string"},
+    "skill_loading": {"type": "string"},
+    "workspace": {"type": "string"},
+    "workspace_commit": {"type": "string"},
+    "workspace_note": {"type": "string"},
+    "sandbox": {"type": "string", "minLength": 1},
+    "session_mode": {"type": "string"},
+    "lesson": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "size_bytes": {"type": "number"},
+        "heuristic_added_tokens": {"type": "number"},
+        "token_estimator": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "environment_overhead_note": {"type": "string"},
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "fixture",
+          "fixture_path",
+          "expected_verdict",
+          "condition",
+          "verdict",
+          "match",
+          "evidence_path"
+        ],
+        "properties": {
+          "fixture": {"type": "string", "minLength": 1},
+          "fixture_path": {"type": "string", "minLength": 1},
+          "expected_verdict": {
+            "enum": ["VERIFIED", "PARTIALLY_VERIFIED", "FAILED", "UNVERIFIED"]
+          },
+          "condition": {"enum": ["baseline", "lesson-assisted"]},
+          "verdict": {
+            "enum": ["VERIFIED", "PARTIALLY_VERIFIED", "FAILED", "UNVERIFIED"]
+          },
+          "match": {"type": "boolean"},
+          "input_tokens": {"type": "number"},
+          "cached_input_tokens": {"type": "number"},
+          "output_tokens": {"type": "number"},
+          "reasoning_output_tokens": {"type": "number"},
+          "evidence_path": {
+            "enum": [
+              "symbolic-cas",
+              "deterministic-script",
+              "numerical-examples",
+              "model-reasoning"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "verdict_preserved": {"type": "boolean"},
+    "verdicts_match_expected": {"type": "number"},
+    "runs_total": {"type": "number"},
+    "false_verified_created": {"type": "boolean"},
+    "lesson_scoping": {"type": "string"},
+    "evidence_sources": {"type": "array", "items": {"type": "string"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "evidence_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fixture", "condition", "evidence_path"],
+        "properties": {
+          "fixture": {"type": "string", "minLength": 1},
+          "condition": {"enum": ["baseline", "lesson-assisted"]},
+          "evidence_path": {
+            "enum": [
+              "symbolic-cas",
+              "deterministic-script",
+              "numerical-examples",
+              "model-reasoning"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

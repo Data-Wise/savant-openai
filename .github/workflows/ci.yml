@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install symbolic check backend
+        run: python3 -m pip install --quiet sympy==1.14.0
+
       - name: Run offline test suite
         run: python3 -m unittest discover -s tests -p 'test_*.py'
 

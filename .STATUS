@@ -59,19 +59,46 @@
   All 6 runs produced the expected verdict, the approved lesson preserved every
   baseline verdict (no false `VERIFIED`), and the model correctly ignored the
   out-of-scope lesson. Recorded actual model token usage per run.
+- Merged PR #6 as `cbdfb9f`: recorded the runtime Codex evaluation, applied the
+  review amendments (evidence-path variance, transcript-archival limitation,
+  cache-wording fix, pinned commit), and added the runtime evaluation
+  follow-up plan. Merged with an admin bypass during the 2026-08-06 GitHub
+  Actions outage; the post-merge `dev` CI run is pending GitHub recovery.
+- Completed runtime evaluation follow-up Phases 1–2 (schema 1.2 evidence-path
+  tracking and the committed deterministic CAS check). Runtime measurements
+  now record a per-run `evidence_path` and flag any sub-CAS `VERIFIED`;
+  `scripts/verify/symbolic-check.py` (SymPy 1.14.0) verifies proof fixtures
+  deterministically in CI. Suite now passes 42 tests.
+- Completed runtime evaluation follow-up Phase 3 (transcript archival policy):
+  sanitized verdict excerpts from the 2026-08-06 evaluation are archived under
+  `docs/measurements/logs/runtime-codex-2026-08-06/`; full raw dumps are
+  explicitly non-archived per
+  `docs/architecture/TRANSCRIPT-ARCHIVAL-POLICY.md`, enforced by
+  `scripts/verify/sanitize-transcript.py` and gate tests. Suite now passes 47
+  tests.
+- Completed runtime evaluation follow-up Phase 4 (in-scope lesson fixtures):
+  added `tests/fixtures/cancellation-without-assumption.json`, ran the
+  baseline-versus-lesson matrix in `codex exec` (both `FAILED`), and recorded
+  the lesson's in-scope effect (explicit rule application and missing-assumption
+  naming) in `MEASUREMENT-in-scope-lesson-2026-08-06.md`. Suite now passes 51
+  tests (49 at PR creation; schema-enum and sanitizer-normalization contract
+  tests added during review bring it to 51).
 
 ## Not started
 
-- Deterministic CAS/statistics scripts.
+- Deterministic statistics scripts (beyond the committed proof-mode CAS check).
 - Codex package materialization and drift checks.
 - Publication or marketplace installation.
-- Broader multi-lesson evaluation and runtime Codex integration.
+- Broader multi-lesson evaluation and runtime Codex integration
+  (follow-up Phase 5).
 
 ## Next approval gate
 
-The CI baseline and runtime Codex evaluation are complete. The next approval
-gate is a separate release/publication plan, or codex-package materialization
-and drift checks; those remain deferred.
+The CI baseline and runtime Codex evaluation are complete and recorded. The
+next proposed work is the runtime evaluation follow-up plan (evidence-path
+tracking and a committed deterministic CAS check) pending approval;
+codex-package materialization and drift checks, and a separate release or
+publication plan, remain deferred.
 
 ## Planning artifacts
 

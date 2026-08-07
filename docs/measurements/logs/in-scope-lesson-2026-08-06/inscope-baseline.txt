@@ -1,0 +1,22 @@
+VERDICT: FAILED
+
+CLAIM: For all real \(x\), \((x^2-1)/(x-1)=x+1\).
+
+SCOPE: Proof-mode verification of the fixture claim.
+
+ASSUMPTIONS: \(x\in\mathbb{R}\); no exclusion of \(x=1\).
+
+CHECKS:
+
+- JSON load: PASS.
+- SymPy 1.14.0 residual check: `PASS`, simplified residual `0`.
+- Boundary check at \(x=1\): numerator \(=0\), denominator \(=0\), left side undefined; right side \(=2\).
+- Targeted symbolic tests: 8/8 passed.
+
+EVIDENCE: The cancellation is valid only for \(x\ne1\), where the identity holds.
+
+LIMITATIONS: The CAS residual checker does not track excluded denominator values; its `PASS` does not establish the universal claim.
+
+HUMAN REVIEW: Not required for this direct counterexample.
+
+NEXT ACTION: Correct the claim to “For all real \(x\ne1\)…” if intended. No files were changed.

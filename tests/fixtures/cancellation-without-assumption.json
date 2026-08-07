@@ -1,0 +1,7 @@
+{
+  "id": "cancellation-without-assumption",
+  "mode": "proof",
+  "claim": "For all real x, (x^2 - 1)/(x - 1) = x + 1.",
+  "expected_verdict": "FAILED",
+  "expected_check": "FAIL"
+}

@@ -25,6 +25,21 @@ The approved lesson (`lesson-proof-001`) targets denominator cancellation.
 None of the three fixtures involve cancellation, so the model correctly judged
 it out of scope and did not alter behavior.
 
+## Evidence paths (schema 1.2)
+
+Each run records an `evidence_path`:
+`symbolic-cas`, `deterministic-script`, `numerical-examples`, or
+`model-reasoning`. The positive baseline run verified through SymPy
+(`symbolic-cas`); the positive lesson-assisted run used structural reasoning
+plus numerical smoke checks (`numerical-examples`), which the verification
+contract does not allow to justify `VERIFIED`. That run is therefore flagged in
+`evidence_flags` and surfaced by `scripts/learning/measure-lesson.py
+--check-runtime`, which cross-checks that no sub-CAS `VERIFIED` is left
+unflagged. The negative runs found their counterexamples numerically
+(`numerical-examples`) and the unavailable-backend runs applied the stop
+condition without a backend (`model-reasoning`); none of those justify
+`VERIFIED`, so none are flagged.
+
 ## Token overhead
 
 Lesson size: 652 bytes → 163 estimated tokens (the deterministic
@@ -54,15 +69,20 @@ reasoning tokens at the configured high reasoning effort.
   model-accuracy benchmark.
 - The session ran from the repository root with the skill loaded through a
   local `~/.codex/skills` symlink; no marketplace or publication path was used.
-- The positive fixture passed a symbolic check available in the session; no
-  CAS script is committed to this repository.
+- The positive fixture passed a symbolic check available in the session; the
+  committed deterministic script
+  (`scripts/verify/symbolic-check.py`, SymPy 1.14.0) now reproduces that check
+  in CI and is the repository-owned backend for future proof-mode verification.
 - In the lesson-assisted positive run, the `VERIFIED` verdict was justified by
   structural reasoning plus numerical smoke checks rather than the symbolic
   CAS check used in the baseline run. The verdict matched, but the evidence
-  path was weaker; justification quality should be tracked in broader
-  evaluation.
-- Raw session transcripts are not committed to this repository. Unlike the
-  deterministic dogfood measurement, reproduction requires re-running
+  path was weaker; it is recorded as `evidence_path: numerical-examples` and
+  flagged in `evidence_flags` under schema 1.2.
+- Raw session transcripts are not archived wholesale; the six verdict excerpts
+  are archived sanitized under
+  [`docs/measurements/logs/runtime-codex-2026-08-06/`](logs/runtime-codex-2026-08-06/)
+  per the [transcript archival policy](../architecture/TRANSCRIPT-ARCHIVAL-POLICY.md).
+  Unlike the deterministic dogfood measurement, reproduction requires re-running
   `codex exec`, and model behavior is non-deterministic.
 - Broader multi-lesson evaluation and package materialization remain separate
   work.

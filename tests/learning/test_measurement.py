@@ -8,6 +8,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MEASURER = REPO_ROOT / "scripts" / "learning" / "measure-lesson.py"
+RUNTIME_MEASUREMENT = (
+    REPO_ROOT / "docs" / "measurements" / "MEASUREMENT-runtime-codex-2026-08-06.json"
+)
 
 
 def lesson(lesson_id="lesson-proof-001", **overrides):
@@ -113,6 +116,95 @@ class LessonMeasurementTests(unittest.TestCase):
 
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("scope", result.stderr.lower())
+
+
+class RuntimeMeasurementCheckTests(unittest.TestCase):
+    def run_check(self, measurement_path):
+        return subprocess.run(
+            [sys.executable, str(MEASURER), "--check-runtime", str(measurement_path)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+    def test_committed_measurement_passes_and_flags_the_weak_verified_run(self):
+        result = self.run_check(RUNTIME_MEASUREMENT)
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("ERRORS: 0", result.stdout)
+        self.assertIn("FLAGS: 1", result.stdout)
+        self.assertIn("correct-proof-step [lesson-assisted] VERIFIED via numerical-examples", result.stdout)
+        self.assertIn("EVIDENCE_FLAGS_MATCH: True", result.stdout)
+
+    def test_rejects_a_verified_run_with_a_missing_flag(self):
+        with tempfile.TemporaryDirectory() as directory:
+            measurement_path = Path(directory) / "measurement.json"
+            measurement_path.write_text(
+                json.dumps(
+                    {
+                        "measurement_schema_version": "1.2",
+                        "date": "2026-08-06",
+                        "surface": "test",
+                        "model": "test",
+                        "sandbox": "read-only",
+                        "runs": [
+                            {
+                                "fixture": "correct-proof-step",
+                                "fixture_path": "tests/fixtures/correct-proof-step.json",
+                                "expected_verdict": "VERIFIED",
+                                "condition": "baseline",
+                                "verdict": "VERIFIED",
+                                "match": True,
+                                "evidence_path": "model-reasoning",
+                            }
+                        ],
+                        "verdicts_match_expected": 1,
+                        "runs_total": 1,
+                        "evidence_flags": [],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            result = self.run_check(measurement_path)
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("evidence_flags", result.stdout)
+
+    def test_rejects_a_mismatched_runs_total(self):
+        with tempfile.TemporaryDirectory() as directory:
+            measurement_path = Path(directory) / "measurement.json"
+            measurement_path.write_text(
+                json.dumps(
+                    {
+                        "measurement_schema_version": "1.2",
+                        "date": "2026-08-06",
+                        "surface": "test",
+                        "model": "test",
+                        "sandbox": "read-only",
+                        "runs": [
+                            {
+                                "fixture": "correct-proof-step",
+                                "fixture_path": "tests/fixtures/correct-proof-step.json",
+                                "expected_verdict": "VERIFIED",
+                                "condition": "baseline",
+                                "verdict": "VERIFIED",
+                                "match": True,
+                                "evidence_path": "symbolic-cas",
+                            }
+                        ],
+                        "verdicts_match_expected": 1,
+                        "runs_total": 2,
+                        "evidence_flags": [],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            result = self.run_check(measurement_path)
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("runs_total", result.stdout)
 
 
 if __name__ == "__main__":
