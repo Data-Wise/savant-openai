@@ -1,9 +1,9 @@
 # savant-openai status
 
-**State:** CI baseline complete; runtime Codex evaluation complete
+**State:** CI baseline, runtime Codex evaluation, and follow-up Phases 1–4 complete
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
-**Last updated:** 2026-08-06
+**Last updated:** 2026-08-07
 
 ## Completed
 
@@ -87,6 +87,20 @@
   naming) in `MEASUREMENT-in-scope-lesson-2026-08-06.md`. Suite now passes 51
   tests (49 at PR creation; schema-enum and sanitizer-normalization contract
   tests added during review bring it to 51).
+- Merged PR #7 (`32737d9`) as the runtime evaluation follow-up Phases 1–4: the
+  evidence-path measurement schema (1.2), the committed deterministic SymPy
+  CAS check, the transcript archival policy, and the in-scope lesson fixtures.
+  Review fixes landed in the merge: sanitizer excerpt normalization (per-line
+  trailing whitespace stripped, single trailing newline), `evidence_flags`
+  `evidence_path` constrained to the run enum, and the suite count corrected to
+  51 tests + 24 subtests.
+- Merged PR #8 (`d357fe2`) as the standalone `savant-teach-mathematical-proofs`
+  skill. Review fixes landed in the merge: the twelve single-backtick
+  pseudo-fences in `references/patterns.md` converted to proper fenced code
+  blocks, the frontmatter description tightened from ~90 to 58 words, and a
+  cross-reference to `savant-research-verify` added for verdict requests.
+  Both branches were merged to `dev` on 2026-08-07 with the full offline suite
+  (51 tests) and skill validation green before each merge.
 
 ## Not started
 
@@ -98,9 +112,10 @@
 
 ## Next approval gate
 
-The CI baseline and runtime Codex evaluation are complete and recorded. The
-next proposed work is the runtime evaluation follow-up plan (evidence-path
-tracking and a committed deterministic CAS check) pending approval;
+The CI baseline, runtime Codex evaluation, and the runtime evaluation
+follow-up Phases 1–4 are complete and recorded; PRs #7 and #8 are merged to
+`dev`. The next proposed work is the runtime evaluation follow-up Phase 5
+(broader multi-lesson evaluation), which opens as new work when approved;
 codex-package materialization and drift checks, and a separate release or
 publication plan, remain deferred.
 
