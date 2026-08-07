@@ -121,6 +121,7 @@ publication plan, remain deferred.
 
 ## Planning artifacts
 
+- [Roadmap](docs/ROADMAP.md)
 - [Specification](docs/specs/SPEC-bounded-learning-2026-08-04.md)
 - [TODO](docs/todo/TODO-bounded-learning.md)
 - [Implementation plan](docs/plans/PLAN-bounded-learning.md)
