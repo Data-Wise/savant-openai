@@ -65,6 +65,20 @@ class SanitizeTranscriptTests(unittest.TestCase):
         self.assertIn("VERDICT: VERIFIED", written)
         self.assertNotIn("an earlier message", written)
 
+    def test_normalizes_trailing_whitespace_and_blank_lines(self):
+        path = self.write_transcript(
+            "VERDICT: VERIFIED  \nNEXT ACTION: none  \n\n\n"
+        )
+        output = self.root / "out"
+        result = run_sanitizer(path, output)
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        written = (output / "run.txt").read_text(encoding="utf-8")
+        self.assertIn("VERDICT: VERIFIED\n", written)
+        self.assertNotIn("  \n", written)
+        self.assertTrue(written.endswith("\n"))
+        self.assertFalse(written.endswith("\n\n"))
+
     def test_redacts_repo_and_codex_home_paths(self):
         message = (
             "EVIDENCE: [fixture](\n"
@@ -119,6 +133,9 @@ class ArchivedLogGateTests(unittest.TestCase):
                 text = path.read_text(encoding="utf-8")
                 self.assertRegex(text.lstrip().splitlines()[0], verdict_line)
                 self.assertNotIn("/Users/", text)
+                self.assertFalse(any(line.rstrip() != line for line in text.splitlines()))
+                self.assertTrue(text.endswith("\n"))
+                self.assertFalse(text.endswith("\n\n"))
                 for pattern in module.SECRET_PATTERNS:
                     self.assertIsNone(pattern.search(text), path.name)
 

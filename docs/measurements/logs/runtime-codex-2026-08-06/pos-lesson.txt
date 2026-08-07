@@ -21,5 +21,3 @@ LIMITATIONS: Verdict assumes standard natural-log notation. Numerical checks sup
 HUMAN REVIEW: None required unless `log` was intended to mean a different logarithm base.
 
 NEXT ACTION: Proceed to the next claim.
-
-

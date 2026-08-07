@@ -62,12 +62,25 @@ def redact(text: str) -> str:
     return text
 
 
+def normalize(text: str) -> str:
+    """Strip per-line trailing whitespace and end with exactly one newline.
+
+    Raw agent messages may contain markdown hard line breaks (two trailing
+    spaces) and trailing blank lines; archived excerpts must stay clean for
+    the repository's whitespace gate (git diff --check).
+    """
+    lines = [line.rstrip() for line in text.splitlines()]
+    while lines and not lines[-1]:
+        lines.pop()
+    return "\n".join(lines) + "\n"
+
+
 def sanitize(path: Path) -> tuple[str, str]:
     """Return (run name, sanitized excerpt) or raise on unsafe content."""
     message = last_agent_message(path)
     if not message:
         raise SanitizeError(f"{path.name}: no final agent message found")
-    sanitized = redact(message)
+    sanitized = normalize(redact(message))
     for pattern in load_secret_patterns():
         if pattern.search(sanitized):
             raise SanitizeError(
@@ -88,7 +101,7 @@ def main(argv: list[str] | None = None) -> int:
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for path in args.transcripts:
             name, excerpt = sanitize(path)
-            (args.output_dir / name).write_text(excerpt + "\n", encoding="utf-8")
+            (args.output_dir / name).write_text(excerpt, encoding="utf-8")
             print(f"WROTE: {args.output_dir / name}")
     except (OSError, SanitizeError) as exc:
         print(f"INVALID: {exc}", file=sys.stderr)

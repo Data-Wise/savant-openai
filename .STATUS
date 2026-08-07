@@ -80,7 +80,9 @@
   added `tests/fixtures/cancellation-without-assumption.json`, ran the
   baseline-versus-lesson matrix in `codex exec` (both `FAILED`), and recorded
   the lesson's in-scope effect (explicit rule application and missing-assumption
-  naming) in `MEASUREMENT-in-scope-lesson-2026-08-06.md`.
+  naming) in `MEASUREMENT-in-scope-lesson-2026-08-06.md`. Suite now passes 51
+  tests (49 at PR creation; schema-enum and sanitizer-normalization contract
+  tests added during review bring it to 51).
 
 ## Not started
 

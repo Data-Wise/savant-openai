@@ -19,5 +19,3 @@ EVIDENCE: The fixture identifies proof mode and expects `FAILED` ([fixture](<rep
 LIMITATIONS: This decisive counterexample is sufficient to refute the universal claim. The corrected identity is \(\sqrt{x^2}=|x|\).
 
 NEXT ACTION: Replace the claim with \(\sqrt{x^2}=|x|\), or restrict it to \(x\ge 0\).
-
-

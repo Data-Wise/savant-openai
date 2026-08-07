@@ -114,6 +114,15 @@ class ContractTests(unittest.TestCase):
         )
         self.assertTrue(any("evidence_path" in error for error in errors))
 
+    def test_runtime_measurement_schema_rejects_an_unknown_flag_evidence_path(self):
+        measurement = self._runtime_measurement()
+        measurement["evidence_flags"][0]["evidence_path"] = "guessing"
+        validator = load_validator()
+        errors = validator.validate_schema(
+            measurement, json.loads(RUNTIME_SCHEMA.read_text(encoding="utf-8"))
+        )
+        self.assertTrue(any("evidence_path" in error for error in errors))
+
     def test_runtime_measurement_schema_rejects_an_unknown_verdict(self):
         measurement = self._runtime_measurement()
         measurement["runs"][0]["verdict"] = "MAYBE"

@@ -16,5 +16,3 @@ LIMITATIONS: Verifies this algebraic step only, not any broader theorem.
 HUMAN REVIEW: Not performed.
 
 NEXT ACTION: None for this fixture.
-
-
