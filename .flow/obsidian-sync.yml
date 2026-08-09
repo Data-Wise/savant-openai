@@ -1,0 +1,7 @@
+# Vault-to-repository mirror for Obsidian-authored notes.
+# Keep repository planning and status documents repo-owned.
+vault_root: "/Users/dt/Library/Mobile Documents/iCloud~md~obsidian/Documents"
+pairs:
+  - { vault: "Engineering/dev-tools/savant-openai", repo: "docs/obsidian" }
+include: ["*.md"]
+exclude: ["_archive"]
