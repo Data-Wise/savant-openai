@@ -1,6 +1,6 @@
 # savant-openai roadmap
 
-**Last updated:** 2026-08-07
+**Last updated:** 2026-08-09
 **Source of truth for state:** [`.STATUS`](../.STATUS)
 
 This roadmap consolidates the forward-looking work across the pilot plan
@@ -26,13 +26,21 @@ Pilot implemented through the first release-adjacent milestones:
   and in-scope lesson fixtures. Merged via PR #7.
 - Standalone `savant-teach-mathematical-proofs` teaching skill. Merged via
   PR #8.
+- `$sequential-wt` coordinator skill, repository/worktree documentation, and
+  reviewed Obsidian bridge. Merged via PR #12; CI passed with 51 tests and
+  five validated skills.
 
 ## Next approval gate
 
-The immediate next proposed work is the runtime evaluation follow-up
-**Phase 5 — broader multi-lesson evaluation** (statistical confidence across
-multiple lessons, fixtures, and repeated runs per condition). It opens as new
-work under a separate plan when approved.
+The immediate release-readiness work is package materialization and drift
+validation, followed by minimal help/tutorial coverage. The runtime evaluation
+follow-up **Phase 5 — broader multi-lesson evaluation** remains a parallel
+research-quality follow-up and is not required to release the existing skill
+surface.
+
+All future ports follow the [Codex-native Savant port roadmap](plans/PLAN-codex-native-savant-port-2026-08-09.md):
+skills are the reusable workflow unit, `agents/openai.yaml` is UI metadata,
+and delegated agents are used only for bounded worktree-isolated tasks.
 
 ## Planned
 
@@ -43,6 +51,14 @@ work under a separate plan when approved.
 | P1 | Codex package materialization and drift checks | Validate that contract fixtures prevent adapter drift before publishing | Separate plan (deferred) |
 | P1 | Release / publication plan | Marketplace or publication install | Separate plan (deferred) |
 | P2 | Codex-only extension reassessment | Whether Codex-only hooks or local enforcement are justified | After packaging evidence |
+
+## Release decision
+
+**Not ready for release yet.** The repository has a coherent pilot skill
+surface and green CI, but it does not yet have a materialized package/drift
+gate or user-facing help/tutorial entry points. Release should follow the
+[release-readiness plan](plans/PLAN-release-readiness-2026-08-09.md), with
+publication and installation remaining explicit approval gates.
 
 ## Guiding constraints
 
@@ -55,6 +71,11 @@ work under a separate plan when approved.
   approval; publication to `dev` goes through a pull request.
 - **No self-editing:** learning candidates are untrusted proposals; nothing in
   this roadmap edits skills, instructions, contracts, or policies automatically.
+- **Codex-native structure:** use `.codex-plugin/plugin.json`, focused
+  `skills/<name>/SKILL.md` directories, optional skill-local resources, and
+  Codex validation gates; do not copy Claude plugin internals.
+- **Agent discipline:** use agents to parallelize independent, reviewable work;
+  never use them to bypass approval, branch, evidence, or integration gates.
 
 ## Related documents
 
@@ -64,3 +85,7 @@ work under a separate plan when approved.
 - [CI baseline plan](plans/PLAN-ci-baseline.md)
 - [Bounded-learning specification](specs/SPEC-bounded-learning-2026-08-04.md)
 - [Status file](../.STATUS)
+- [Release-readiness plan](plans/PLAN-release-readiness-2026-08-09.md)
+- [Codex-native Savant port roadmap](plans/PLAN-codex-native-savant-port-2026-08-09.md)
+- [Codex plugin architecture](architecture/CODEX-PLUGIN-ARCHITECTURE.md)
+- [Internal governance skills plan](plans/PLAN-internal-codex-governance-skills-2026-08-09.md)
