@@ -3,7 +3,7 @@
 **State:** CI baseline, runtime Codex evaluation, and follow-up Phases 1–4 complete
 **Version:** 0.1.0
 **Branch:** `dev` (default integration)
-**Last updated:** 2026-08-08
+**Last updated:** 2026-08-09
 
 ## Completed
 
@@ -103,23 +103,28 @@
   cross-reference to `savant-research-verify` added for verdict requests.
   Both branches were merged to `dev` on 2026-08-07 with the full offline suite
   (51 tests) and skill validation green before each merge.
+- Merged PR #12 (`f12035c`) adding the `$sequential-wt` coordinator skill,
+  the repository/worktree documentation, and the reviewed Obsidian sync
+  bridge. CI passed with 51 tests and five validated skills.
 
 ## Not started
 
 - Deterministic statistics scripts (beyond the committed proof-mode CAS check).
 - Codex package materialization and drift checks.
+- User-facing help/tutorial coverage for the installed skill surface.
 - Publication or marketplace installation.
 - Broader multi-lesson evaluation and runtime Codex integration
   (follow-up Phase 5).
 
 ## Next approval gate
 
-The CI baseline, runtime Codex evaluation, and the runtime evaluation
-follow-up Phases 1–4 are complete and recorded; PRs #7 and #8 are merged to
-`dev`. The next proposed work is the runtime evaluation follow-up Phase 5
-(broader multi-lesson evaluation), which opens as new work when approved;
-codex-package materialization and drift checks, and a separate release or
-publication plan, remain deferred.
+The CI baseline, runtime Codex evaluation, runtime evaluation follow-up
+Phases 1–4, and the sequential-worktree skill are complete and recorded; PRs
+#7, #8, and #12 are merged to `dev`. Do not release yet. The next release gate
+is package materialization and drift validation, followed by minimal help and
+tutorial coverage and a separate publication approval. Phase 5 broader
+multi-lesson evaluation remains a parallel research-quality follow-up, not a
+release prerequisite for the existing skills.
 
 ## Planning artifacts
 
@@ -134,3 +139,6 @@ publication plan, remain deferred.
 - [Repository workflow and protection policy](docs/architecture/REPOSITORY-WORKFLOW.md)
 - [CI baseline plan](docs/plans/PLAN-ci-baseline.md)
 - [CI baseline TODO](docs/todo/TODO-ci-baseline.md)
+- [Release-readiness plan](docs/plans/PLAN-release-readiness-2026-08-09.md)
+- [Codex-native Savant port roadmap](docs/plans/PLAN-codex-native-savant-port-2026-08-09.md)
+- [Internal governance skills plan](docs/plans/PLAN-internal-codex-governance-skills-2026-08-09.md)
