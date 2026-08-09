@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sequential Worktree Coordinator"
+  short_description: "Delegate bounded tasks in isolated worktrees"
+  default_prompt: "Use $sequential-wt to coordinate this task from dev using an isolated feature worktree."

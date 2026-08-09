@@ -45,6 +45,11 @@ remotes, `dev-tools` branch topology, plugin detection, skill validation, and
 preflight checks. It does not import Claude commands, hooks, or marketplace
 metadata.
 
+`$sequential-wt` coordinates bounded implementation work without moving the
+coordinator off `dev`: it creates one `feature/*` worktree, prepares a focused
+worker handoff, reviews the resulting diff, and leaves integration approval
+with the coordinator.
+
 ## Status
 
 The repository uses `dev` as its GitHub default integration branch, with

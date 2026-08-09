@@ -67,9 +67,11 @@ requirement on remote `dev` remains in force.
 1. Read the current branch, worktree, status, and remote.
 2. Stay on `dev` for allowlisted planning-only work; use `feature/*` for code or
    skill implementation.
-3. Run the skill validator and full offline test suite.
-4. Open a pull request targeting `dev`.
-5. Treat default-branch, protection, release, and publication changes as
+3. For bounded implementation, use `$sequential-wt` to create an isolated
+   `feature/*` worktree from `dev` while the coordinator remains on `dev`.
+4. Run the skill validator and full offline test suite.
+5. Open a pull request targeting `dev`.
+6. Treat default-branch, protection, release, and publication changes as
    separate approval gates.
 
 This document describes repository policy; it does not install Claude hooks or
