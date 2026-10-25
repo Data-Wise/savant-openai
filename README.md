@@ -38,6 +38,11 @@ reviewing candidate lessons. It validates evidence and scope, then requires a
 human-selected approve, reject, supersede, or revert action. Normal research
 verification loads no learning context.
 
+## Python verification
+
+Use Python 3.14 or 3.15 with `sympy==1.14.0` for the offline tests. CI validates
+both minor series and the portable skill package.
+
 ## Repository scaffolding
 
 `$savant-repo-scaffold` provides a Codex-native setup workflow for GitHub
@@ -63,3 +68,9 @@ for the Codex-session boundary and branch settings.
 Read [the architecture plan](docs/architecture/SAVANT-OPENAI-PLAN.md) first.
 
 See [the roadmap](docs/ROADMAP.md) for the forward-looking sequence.
+
+## Writing guidance boundary
+
+Proof teaching includes scoped referent and terminology-evidence checks for inserted
+explanations. This adapter does not add a general copyediting skill or change research
+verification verdicts. Source synchronization does not install or publish the plugin.

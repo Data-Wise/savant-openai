@@ -1,6 +1,6 @@
 ---
 name: savant-teach-mathematical-proofs
-description: Convert a stated mathematical proof into a fully taught proof without changing its mathematics. Use when asked to teach, expand, or annotate proofs in Markdown, LaTeX, Quarto, or pasted text: restore skipped algebra, justify each step, define notation at first use, audit definition order, and optionally add one worked instance while preserving the source's equations, assumptions, and format.
+description: "Convert a stated mathematical proof into a fully taught proof without changing its mathematics. Use when asked to teach, expand, or annotate proofs in Markdown, LaTeX, Quarto, or pasted text: restore skipped algebra, justify each step, define notation at first use, audit definition order, and optionally add one worked instance while preserving the source's equations, assumptions, and format."
 ---
 
 # Teach Mathematical Proofs
@@ -12,6 +12,10 @@ Use this skill for pasted proof passages and for source files ending in `.md`, `
 If you need an evidence-based verdict on whether a proof is valid, use `savant-research-verify` instead. This skill teaches; it does not produce a verification verdict.
 
 Load [references/patterns.md](references/patterns.md) when the proof has dense algebra, delicate inequality conditions, difficult first-use dependencies, a needed worked instance, or source-format preservation questions. It contains concrete phrasing patterns and failure cases; use it as a reference, not as a substitute for checking the supplied proof.
+
+For referents, terminology evidence, and selected author hyphen preferences in teaching
+insertions, read [the scoped writing reference](references/writing-evidence.md). It does
+not authorize new mathematics, citations, or general copyediting.
 
 ## Non-negotiable boundary
 

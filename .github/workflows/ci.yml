@@ -12,8 +12,12 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: test
+  python:
+    name: Python ${{ matrix.python-version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.14", "3.15"]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,7 +29,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
 
       - name: Install symbolic check backend
         run: python3 -m pip install --quiet sympy==1.14.0
@@ -43,3 +47,14 @@ jobs:
       - name: Check pushed commit whitespace
         if: github.event_name == 'push'
         run: git diff --check "${{ github.event.before }}...${{ github.sha }}"
+
+  test:
+    name: test
+    if: ${{ always() }}
+    needs: python
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require both Python versions
+        env:
+          RESULT: ${{ needs.python.result }}
+        run: test "$RESULT" = success
