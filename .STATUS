@@ -1,3 +1,13 @@
+## Scoped writing sync and Python support prepared — 2026-10-25
+
+- Proof-teaching insertions reference scoped referent/terminology/hyphen guidance from Savant
+  #568/#569; verification verdicts and general copyediting ownership remain unchanged.
+- Quoted the proof-teaching description so its colon parses as valid YAML.
+- CI matrix supports Python 3.14 and 3.15; 51 tests pass on each with SymPy 1.14.0.
+  All four skills pass repository validation; the standard skill validator was also checked.
+- Local codex/writing-guidance-568-569 only; no push, merge, publication, or active installation.
+- No manuscript edits; submission holds preserved. Independent model behavior not run.
+
 # savant-openai status
 
 **State:** CI baseline, runtime Codex evaluation, and follow-up Phases 1–4 complete
