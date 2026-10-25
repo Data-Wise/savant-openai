@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    name: test
+  python:
+    name: Python ${{ matrix.python-version }}
     strategy:
       fail-fast: false
       matrix:
@@ -47,3 +47,14 @@ jobs:
       - name: Check pushed commit whitespace
         if: github.event_name == 'push'
         run: git diff --check "${{ github.event.before }}...${{ github.sha }}"
+
+  test:
+    name: test
+    if: ${{ always() }}
+    needs: python
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require both Python versions
+        env:
+          RESULT: ${{ needs.python.result }}
+        run: test "$RESULT" = success

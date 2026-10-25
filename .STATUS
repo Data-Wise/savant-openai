@@ -3,9 +3,12 @@
 - Proof-teaching insertions reference scoped referent/terminology/hyphen guidance from Savant
   #568/#569; verification verdicts and general copyediting ownership remain unchanged.
 - Quoted the proof-teaching description so its colon parses as valid YAML.
+- Rebased onto current origin/dev; preserves five skills and the protected `test` context
+  through a fail-closed aggregate job. Actionlint and 5/5 aggregate controls passed.
 - CI matrix supports Python 3.14 and 3.15; 51 tests pass on each with SymPy 1.14.0.
-  All four skills pass repository validation; the standard skill validator was also checked.
-- Local codex/writing-guidance-568-569 only; no push, merge, publication, or active installation.
+  All five current skills pass repository validation; the standard skill validator was also checked.
+- Reviewed codex/writing-guidance-568-569 targets dev; push/PR delivery authorized.
+  Merge, publication, and active installation remain separate.
 - No manuscript edits; submission holds preserved. Independent model behavior not run.
 
 # savant-openai status
