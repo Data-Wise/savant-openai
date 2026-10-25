@@ -1,5 +1,7 @@
 ## Scoped writing sync and Python support prepared — 2026-10-25
 
+- PR opened: https://github.com/Data-Wise/savant-openai/pull/14 against `dev`.
+  Reviewed fixes committed and pushed; no merge/release/active installation.
 - Proof-teaching insertions reference scoped referent/terminology/hyphen guidance from Savant
   #568/#569; verification verdicts and general copyediting ownership remain unchanged.
 - Quoted the proof-teaching description so its colon parses as valid YAML.
